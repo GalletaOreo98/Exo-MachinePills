@@ -14,6 +14,13 @@ body {
     background-color: #EF1423;
 }
 
+.pill-normal {
+    background-image: url("/assets/images/pill.png");
+    width: 8rem;
+    height: 8rem;
+    background-size: cover;
+}
+
 /* PILL IMG ANIMATION */
 .pill-glitched {
     background-image: url("/assets/images/pill.png");
