@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-error-page',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) { 
+    /* this.renderer.addClass(document.body, "testeoclass"); */
+  }
 
   ngOnInit(): void {
+    const body = this.renderer.parentNode(this.renderer.parentNode(this.elementRef.nativeElement));
+    console.log(body);
+    this.renderer.addClass(body, "error-page-bg");
   }
 
 }

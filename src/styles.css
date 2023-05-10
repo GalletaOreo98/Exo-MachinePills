@@ -1,6 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI';
-    background-color: #161616;
+    background: #161616;
     color: #FFFFFF;
 }
+
+.error-page-bg{
+    background-image: url("/assets/images/eyes.gif");
+    background-repeat: repeat;
+}
+
+.btn-danger {
+    background-color: #EF1423;
+}
+
+/* PILL IMG ANIMATION */
+.pill-glitched {
+    background-image: url("/assets/images/pill.png");
+    width: 8rem;
+    height: 8rem;
+    background-repeat: no-repeat;
+    background-position: fixed;
+    position: relative;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.pill-glitched:before {
+    content: "";
+    position: absolute;
+    width: 8rem;
+    background-position: fixed;
+
+    background-image: url("/assets/images/pill.png");
+    height: 8rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: sepia(100%);
+    opacity: 0.5;
+}
+
+.pill-glitched::before {
+    opacity: 0.5;
+    animation: effect 3s infinite;
+}
+
+@keyframes effect {
+    0% {
+        background-position: 0 0;
+        filter: hue-rotate(5deg);
+    }
+
+    30% {
+        background-position: 2px 0;
+    }
+
+    50% {
+        background-position: -3px 0;
+    }
+
+    70% {
+        background-position: -4px 0;
+    }
+
+    80% {
+        background-position: -3px 0;
+    }
+
+    100% {
+        background-position: 2px 0;
+        filter: hue-rotate(360deg);
+    }
+}
+/* END PILL IMG ANIMATION */
