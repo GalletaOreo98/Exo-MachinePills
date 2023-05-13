@@ -1,3 +1,4 @@
 li:hover, li:active {
     color: red;
+    cursor: pointer;
 }
