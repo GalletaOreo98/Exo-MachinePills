@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmotionComponent } from './emotion.component';
+import { WadomComponent } from './wadom.component';
 
 const routes: Routes = [
-  { path: '', component: EmotionComponent},
-  { path: '**', redirectTo: 'emotion'}
+  { path: '', component: WadomComponent},
+  { path: '**', redirectTo: 'wadom'}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EmotionRoutingModule { }
+export class WadomRoutingModule { }
