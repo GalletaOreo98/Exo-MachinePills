@@ -5,6 +5,17 @@ body {
     color: #FFFFFF;
 }
 
+.card {
+    background-color: #161616;
+    border: none;
+    max-width: 58rem;
+}
+
+.card-text {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 .error-page-bg{
     background-image: url("/assets/images/eyes.gif");
     background-repeat: repeat;
