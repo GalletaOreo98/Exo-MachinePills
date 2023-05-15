@@ -25,6 +25,35 @@ body {
     background-color: #EF1423;
 }
 
+/* LAYER INTRO SEPARATOR */
+.separator {
+    width: calc(50 - 50%);
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+}
+
+.separator .symbol {
+    margin: 0 10px;
+}
+
+.separator .dash {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #414141;
+}
+
+span {
+    color: #414141;
+}
+
+.separator-container {
+    /* Class solo para PC*/
+    margin-right: 10%;
+    margin-left: 10%;
+}
+/* END LAYER INTRO SEPARATOR */
+
 .pill-normal {
     background-image: url("/assets/images/pill.png");
     width: 8rem;
