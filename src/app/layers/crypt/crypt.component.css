@@ -5,3 +5,15 @@
 span {
     color: #D63384;
 }
+
+.card {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card-text {
+    color: #ffa6bc;
+}
+
+.card-title {
+    color: #ff648b;
+}

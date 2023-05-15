@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-crypt',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CryptComponent implements OnInit {
 
-  constructor() { }
+  body: any;
+
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.body = this.renderer.parentNode(this.renderer.parentNode(this.elementRef.nativeElement));
+    this.renderer.addClass(this.body, "error-page-bg");
+  }
+
+  ngOnDestroy(): void {
+    this.renderer.removeClass(this.body, "error-page-bg");
   }
 
 }
