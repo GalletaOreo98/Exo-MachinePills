@@ -18,4 +18,9 @@ export class HomeComponent implements OnInit {
     this.renderer.addClass(pill, "pill-glitched");
   }
 
+  redirectToURL(): void {
+    const url = "https://youtube.com/playlist?list=PLysI2Rm9zlU5y3NhbKyEtzNgXaGSIGjZZ"
+    window.open(url, '_blank');
+  }
+
 }
