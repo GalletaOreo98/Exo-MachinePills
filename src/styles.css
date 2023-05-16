@@ -59,6 +59,10 @@ span {
     width: 8rem;
     height: 8rem;
     background-size: cover;
+} 
+
+.pill-normal:hover {
+    cursor: pointer;
 }
 
 /* PILL IMG ANIMATION */

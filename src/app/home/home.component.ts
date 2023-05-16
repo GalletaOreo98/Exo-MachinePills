@@ -14,8 +14,12 @@ export class HomeComponent implements OnInit {
 
   takeAPill() {
     const pill = this.elementRef.nativeElement.querySelector('#pill');
-    this.renderer.removeClass(pill, "pill-normal");
+    //this.renderer.removeClass(pill, "pill-normal");
     this.renderer.addClass(pill, "pill-glitched");
+
+    const hiddenLayer = this.elementRef.nativeElement.querySelector('#hidden-layer');
+    //this.renderer.removeStyle(hiddenLayer, "color");
+    this.renderer.setStyle(hiddenLayer, "color", "#414141");
   }
 
   redirectToURL(): void {
