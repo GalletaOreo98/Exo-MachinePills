@@ -5,3 +5,26 @@
 .save-btn:hover {
     background-color: #A44326;
 }
+
+.aurora-btn {
+    color: #E9AFA4;
+    border-color: #E9AFA4;
+}
+
+.aurora-btn:hover {
+    background-color: #E9AFA4;
+    color: #ffffff;
+}
+
+.aurora-btn:active {
+    background-color: #E9AFA4;
+    color: #ffffff;
+    border-color: #E9AFA4;
+}
+
+.aurora-btn:focus {
+    background-color: #E9AFA4;
+    color: #ffffff;
+    border-color: #E9AFA4;
+    box-shadow: none;
+}
