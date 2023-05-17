@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { AuroraRoutingModule } from './aurora-routing.module';
 import { AuroraComponent } from './aurora.component';
+import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 
 
 @NgModule({
   declarations: [
-    AuroraComponent
+    AuroraComponent,
+    ModalBasicComponent
   ],
   imports: [
     CommonModule,

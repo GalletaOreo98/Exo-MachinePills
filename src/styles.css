@@ -5,6 +5,16 @@ body {
     color: #FFFFFF;
 }
 
+/* MODAL */
+.dark-modal .modal-content {
+    background-color: #100C20;
+    color: white;
+}
+.dark-modal .close {
+    color: white;
+}
+/* END MODAL */
+
 .card {
     background-color: #161616;
     border: none;
