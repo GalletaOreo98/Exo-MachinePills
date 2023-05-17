@@ -14,8 +14,13 @@ export class ModalBasicComponent implements OnInit {
   typingSpeed = 50;
   currentIndex = 0;
   myDocument: any; //El #document 
+  audio: HTMLAudioElement;
 
-  constructor(private modalService: NgbModal, private renderer: Renderer2, private elementRef: ElementRef) { }
+  constructor(private modalService: NgbModal, private renderer: Renderer2, private elementRef: ElementRef) { 
+    this.audio = new Audio();
+    this.audio.src = '/assets/audio/campfire.mp3';
+    this.audio.loop = true;
+   }
 
   ngOnInit(): void {
     this.myDocument = this.renderer.parentNode(this.renderer.parentNode(this.renderer.parentNode(this.renderer.parentNode(this.renderer.parentNode(this.renderer.parentNode(this.elementRef.nativeElement))))));
@@ -25,11 +30,14 @@ export class ModalBasicComponent implements OnInit {
     this.modalService.open(content, { fullscreen: true, windowClass: 'dark-modal' }).result.then(
       () => {
         this.currentIndex = 0;
+        this.audio.pause();
       },
       () => {
         this.currentIndex = 0;
+        this.audio.pause();
       }
     )
+    this.audio.play();
     this.typeText();
   }
 
