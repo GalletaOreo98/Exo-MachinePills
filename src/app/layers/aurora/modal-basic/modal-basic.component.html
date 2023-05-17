@@ -1,15 +1,15 @@
 <ng-template #content let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
 	<div class="modal-body">
 		<div class="d-flex justify-content-center">
             <img src="/assets/images/campfire.gif" alt="" class="col-12 col-md-6 col-lg-5">
         </div>
+        <br>
+        <div class="d-flex justify-content-center">
+            <p id="typingText" class="col-12 col-md-6 col-lg-5"></p>
+        </div>
 	</div>
 	<div class="modal-footer">
-		<button type="button" ngbAutofocus  class="btn btn-outline-dark save-btn" (click)="modal.close()">Save</button>
+		<button type="button" ngbAutofocus  class="btn btn-outline-dark save-btn" (click)="modal.close()">Continuar</button>
 	</div>
 </ng-template>
 
