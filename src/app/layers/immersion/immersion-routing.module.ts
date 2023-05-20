@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ImmersionComponent } from './immersion.component';
 
 const routes: Routes = [
-  { path: '', component: ImmersionComponent},
-  { path: '**', redirectTo: 'immersion'}
+  {path: '', component: ImmersionComponent},
+  {path: 'ai',loadChildren: () => import('./modules/ai/ai.module').then(m => m.AiModule)},
+  {path: '**', redirectTo: 'immersion'} 
 ];
 
 @NgModule({
