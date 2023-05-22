@@ -1,0 +1,5 @@
+.fullscreen-container {
+    height: 100vh; /* Establece la altura al 100% de la altura de la ventana */
+    width: 100vw; /* Establece el ancho al 100% del ancho de la ventana */
+  }
+  

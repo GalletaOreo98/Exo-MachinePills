@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbSlideEvent } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 interface carouselImage {
   src: string,
@@ -19,9 +20,11 @@ export class CarouselComponent implements OnInit {
   ];
 
   lastImage = 1;
-  totalImages = 5;
+  totalImages = 8;
 
-  constructor() { }
+  constructor(config: NgbCarouselConfig) { 
+    config.interval = 10000;
+  }
 
   ngOnInit(): void {
   }
