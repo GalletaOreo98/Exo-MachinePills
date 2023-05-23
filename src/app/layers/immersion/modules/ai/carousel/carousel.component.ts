@@ -20,7 +20,7 @@ export class CarouselComponent implements OnInit {
   ];
 
   lastImage = 1;
-  totalImages = 8;
+  totalImages = 7;
 
   constructor(config: NgbCarouselConfig) { 
     config.interval = 10000;
