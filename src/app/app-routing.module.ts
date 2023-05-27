@@ -15,6 +15,9 @@ const routes: Routes = [
   {path: 'layers/ether', loadChildren: () => import('./layers/ether/ether.module').then( m => m.EtherModule)},
   {path: 'layers/crypt', loadChildren: () => import('./layers/crypt/crypt.module').then( m => m.CryptModule)},
 
+  //Cyberia
+  {path: 'cyberia', loadChildren: () => import('./cyberia/cyberia.module').then( m => m.CyberiaModule)},
+
   //Error and redirect
   {path: 'error', loadChildren: () => import('./error-page/error-page.module').then( m => m.ErrorPageModule)},
   {path: '**', component: HomeComponent},

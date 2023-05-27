@@ -1,4 +1,29 @@
-li:hover, li:active {
-    color: red;
-    cursor: pointer;
+li:hover,
+li:active {
+  color: red;
+  cursor: pointer;
+}
+
+.neon-text {
+  animation: neon-animation 2s linear infinite;
+}
+.neon-text:hover,
+.neon-text:active {
+  cursor: pointer;
+  color: #6495ed;
+  animation: none;
+}
+
+@keyframes neon-animation {
+  0% {
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #4201ba, 0 0 5px #4201ba, 0 0 6px #4201ba, 0 0 8px #4201ba, 0 0 10px #4201ba;
+  }
+
+  50% {
+    text-shadow: none;
+  }
+
+  100% {
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #4201ba, 0 0 5px #4201ba, 0 0 6px #4201ba, 0 0 8px #4201ba, 0 0 10px #4201ba;
+  }
 }
