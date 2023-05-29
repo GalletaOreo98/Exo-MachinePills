@@ -12,6 +12,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   ctx!: CanvasRenderingContext2D | null;
 
+  isMobile: boolean | undefined;
+
   //Canvas vars
   background = new Image();
   lain_right_1 = new Image();
@@ -34,14 +36,16 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   };
   isFirstCanvasDraw = true;
 
-  constructor() { }
+  constructor() {
+    this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+  }
 
   ngAfterViewInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.loadImages();
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    this.adjustCanvasSize(isMobile);
-    this.adjustCanvasObjects(isMobile);
+    //const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    this.adjustCanvasSize();
+    this.adjustCanvasObjects();
     console.log("ngAfterViewInit");
   }
 
@@ -81,8 +85,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.lain_left_2.src = 'assets/images/cyberia/lain_left_2.png';
   }
 
-  private adjustCanvasSize(isMobile: boolean): void {
-    if (isMobile) {
+  private adjustCanvasSize(): void {
+    if (this.isMobile) {
       // Ajustar el tamaño del canvas al % del ancho y al % del alto de la pantalla en dispositivos móviles
       this.canvas.nativeElement.width = 400;
       this.canvas.nativeElement.height = 300;
@@ -93,8 +97,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private adjustCanvasObjects(isMobile: boolean) {
-    if (!isMobile) return;
+  private adjustCanvasObjects() {
+    if (!this.isMobile) return;
     this.lain_right_1.width = this.lain_right_1.width * 0.5;
     this.lain_right_1.height = this.lain_right_1.height * 0.5;
     this.lain_right_2.width = this.lain_right_2.width * 0.5;
