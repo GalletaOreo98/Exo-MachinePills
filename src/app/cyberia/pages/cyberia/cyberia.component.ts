@@ -164,13 +164,13 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
           this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
           break;
       case 'MOV_DERECHA':
-          this.ctx!.drawImage(this.lain_right_2, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_right_2, this.character.x, this.character.y, this.lain_right_2.width, this.lain_right_2.height);
           break;
       case 'NORMAL2':
-          this.ctx!.drawImage(this.lain_left_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_left_1, this.character.x, this.character.y, this.lain_left_1.width, this.lain_left_1.height);
           break;
       case 'MOV_IZQUIERDA':
-          this.ctx!.drawImage(this.lain_left_2, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_left_2, this.character.x, this.character.y, this.lain_left_2.width, this.lain_left_2.height);
           break;
       default:
           break;
