@@ -2,7 +2,13 @@
 
 <div class="d-flex justify-content-center">
     <canvas #gameCanvas></canvas>
-    
+    <div class="d-block">
+      <button class="btn btn-light mb-1" (click)="play('MOV_DERECHA')">Play</button>
+      <br>
+      <button class="btn btn-light mb-1" (click)="play('MOV_IZQUIERDA')">Stop</button>
+      <br>
+      <button class="btn btn-light mb-1">Next</button>
+    </div>
 </div>
 
 
