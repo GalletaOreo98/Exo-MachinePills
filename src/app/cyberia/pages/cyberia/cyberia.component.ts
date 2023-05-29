@@ -35,6 +35,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     y: 200,
   };
   isFirstCanvasDraw = true;
+  reductionFactor = 1;
 
   constructor() {
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -98,21 +99,25 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   private adjustCanvasObjects() {
-    if (!this.isMobile) return;
-    this.lain_right_1.width = this.lain_right_1.width * 0.5;
-    this.lain_right_1.height = this.lain_right_1.height * 0.5;
-    this.lain_right_2.width = this.lain_right_2.width * 0.5;
-    this.lain_right_2.height = this.lain_right_2.height * 0.5;
-    this.lain_left_1.width = this.lain_left_1.width * 0.5;
-    this.lain_left_1.height = this.lain_left_1.height * 0.5;
-    this.lain_left_2.width = this.lain_left_2.width * 0.5;
-    this.lain_left_2.height = this.lain_left_2.height * 0.5;
-    this.tv.width = this.tv.width * 0.5;
-    this.tv.height = this.tv.height * 0.5;
-    this.character.x = this.character.x * 0.5;
-    this.character.y = this.character.y * 0.5;
-    this.tvObject.x = this.tvObject.x * 0.5;
-    this.tvObject.y = this.tvObject.y * 0.5;
+    if (this.isMobile) {
+      this.reductionFactor = 0.5
+    } else{
+      return;
+    }
+    this.lain_right_1.width = this.lain_right_1.width * this.reductionFactor;
+    this.lain_right_1.height = this.lain_right_1.height * this.reductionFactor;
+    this.lain_right_2.width = this.lain_right_2.width * this.reductionFactor;
+    this.lain_right_2.height = this.lain_right_2.height * this.reductionFactor;
+    this.lain_left_1.width = this.lain_left_1.width * this.reductionFactor;
+    this.lain_left_1.height = this.lain_left_1.height * this.reductionFactor;
+    this.lain_left_2.width = this.lain_left_2.width * this.reductionFactor;
+    this.lain_left_2.height = this.lain_left_2.height * this.reductionFactor;
+    this.tv.width = this.tv.width * this.reductionFactor;
+    this.tv.height = this.tv.height * this.reductionFactor;
+    this.character.x = this.character.x * this.reductionFactor;
+    this.character.y = this.character.y * this.reductionFactor;
+    this.tvObject.x = this.tvObject.x * this.reductionFactor;
+    this.tvObject.y = this.tvObject.y * this.reductionFactor;
   }
 
   //GAME FUNCTIONS
@@ -206,7 +211,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   private async slowLoopExecution(action: string): Promise<void> {
     const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-    const totalIterations = 60; //Practicamente es la distancia que se va a mover
+    const totalIterations = 60 * this.reductionFactor; //Practicamente es la distancia que se va a mover
   
     for (let i = 0; i < totalIterations; i++) {
       // Codigo que deseas ejecutar en cada iteracion del bucle
