@@ -29,6 +29,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     x: 110,
     y: 200,
   };
+  isFirstCanvasDraw = true;
 
   constructor() { }
 
@@ -38,7 +39,15 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
     this.adjustCanvasSize(isMobile);
     this.adjustCanvasObjects(isMobile);
-    this.firstCanvasDraw();
+    console.log("ngAfterViewInit");
+  }
+
+  ngAfterViewChecked() {
+    if (this.isFirstCanvasDraw) {
+      this.firstCanvasDraw();
+      this.isFirstCanvasDraw = false;
+      console.log("ngAfterViewChecked");
+    }
   }
 
   ngOnInit(): void {
