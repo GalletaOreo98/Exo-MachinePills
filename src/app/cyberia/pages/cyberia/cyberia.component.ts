@@ -161,16 +161,16 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   private drawCharacter(): void {
     switch (this.character.estado) {
       case 'NORMAL':
-          this.ctx!.drawImage(this.lain_right_1, 0 , 0, this.lain_right_1.width, this.lain_right_1.height, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
           break;
       case 'MOV_DERECHA':
-          this.ctx!.drawImage(this.lain_right_2, 0 , 0, this.lain_right_1.width, this.lain_right_1.height, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_right_2, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
           break;
       case 'NORMAL2':
-          this.ctx!.drawImage(this.lain_left_1, 0 , 0, this.lain_right_1.width, this.lain_right_1.height, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_left_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
           break;
       case 'MOV_IZQUIERDA':
-          this.ctx!.drawImage(this.lain_left_2, 0 , 0, this.lain_right_1.width, this.lain_right_1.height, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+          this.ctx!.drawImage(this.lain_left_2, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
           break;
       default:
           break;
