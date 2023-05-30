@@ -14,6 +14,9 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   isMobile: boolean | undefined;
 
+  private audio: HTMLAudioElement;
+  private currentSong = 1;
+
   //Canvas vars
   background = new Image();
   lain_right_1 = new Image();
@@ -39,6 +42,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   constructor() {
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+    this.audio = new Audio();
+    this.audio.src = '/assets/audio/cyberia/lyr1.mp3';
   }
 
   ngAfterViewInit(): void {
@@ -59,6 +64,10 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this.audio.pause();
   }
 
   private firstCanvasDraw(): void {
@@ -101,7 +110,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   private adjustCanvasObjects() {
     if (this.isMobile) {
       this.reductionFactor = 0.5
-    } else{
+    } else {
       return;
     }
     this.lain_right_1.width = this.lain_right_1.width * this.reductionFactor;
@@ -170,20 +179,20 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   private drawCharacter(): void {
     switch (this.character.estado) {
       case 'NORMAL':
-          this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
-          break;
+        this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
+        break;
       case 'MOV_DERECHA':
-          this.ctx!.drawImage(this.lain_right_2, this.character.x, this.character.y, this.lain_right_2.width, this.lain_right_2.height);
-          break;
+        this.ctx!.drawImage(this.lain_right_2, this.character.x, this.character.y, this.lain_right_2.width, this.lain_right_2.height);
+        break;
       case 'NORMAL2':
-          this.ctx!.drawImage(this.lain_left_1, this.character.x, this.character.y, this.lain_left_1.width, this.lain_left_1.height);
-          break;
+        this.ctx!.drawImage(this.lain_left_1, this.character.x, this.character.y, this.lain_left_1.width, this.lain_left_1.height);
+        break;
       case 'MOV_IZQUIERDA':
-          this.ctx!.drawImage(this.lain_left_2, this.character.x, this.character.y, this.lain_left_2.width, this.lain_left_2.height);
-          break;
+        this.ctx!.drawImage(this.lain_left_2, this.character.x, this.character.y, this.lain_left_2.width, this.lain_left_2.height);
+        break;
       default:
-          break;
-  }
+        break;
+    }
   }
 
   private drawCanvasBackground(): void {
@@ -196,9 +205,9 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   play(action: string): void {
-    if(this.character.isMoving) return;
-    if(this.character.x > this.INITIAL_CHARACTER_X && action == "MOV_DERECHA") return;
-    if(this.character.x <= this.INITIAL_CHARACTER_X && action == "MOV_IZQUIERDA") return;
+    if (this.character.isMoving) return;
+    if (this.character.x > this.INITIAL_CHARACTER_X && action == "MOV_DERECHA") return;
+    if (this.character.x <= this.INITIAL_CHARACTER_X && action == "MOV_IZQUIERDA") return;
     this.character.isMoving = true;
     this.slowLoopExecution(action);
   }
@@ -209,10 +218,11 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   private async slowLoopExecution(action: string): Promise<void> {
+    if (action === "MOV_IZQUIERDA") this.audio.pause();
     const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
     const totalIterations = 60 * this.reductionFactor; //Practicamente es la distancia que se va a mover
-  
+
     for (let i = 0; i < totalIterations; i++) {
       // Codigo que deseas ejecutar en cada iteracion del bucle
       this.clearCanvas();
@@ -223,6 +233,17 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     }
     this.stopCharachter();
     this.character.isMoving = false;
+    if (action === "MOV_DERECHA") this.audio.play();
+  }
+
+  nextSong(): void {
+    if (this.character.x <= this.INITIAL_CHARACTER_X) return;
+    this.currentSong++;
+    if (this.currentSong > 3) {
+      this.currentSong = 1;
+    }
+    this.audio.src = `/assets/audio/cyberia/lyr${this.currentSong}.mp3`
+    this.audio.play();
   }
 
 }
