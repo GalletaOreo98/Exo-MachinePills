@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cyberia',
@@ -18,12 +18,12 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   private currentSong = 1;
 
   //Canvas vars
-  background = new Image();
-  lain_right_1 = new Image();
-  lain_right_2 = new Image();
-  lain_left_1 = new Image();
-  lain_left_2 = new Image();
-  tv = new Image();
+  background;
+  lain_right_1;
+  lain_right_2;
+  lain_left_1;
+  lain_left_2;
+  tv;
   readonly CANVAS_SUELO = 472;
   readonly INITIAL_CHARACTER_X = 180;
   character = {
@@ -31,36 +31,41 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     y: this.CANVAS_SUELO,
     animationTime: 0,
     frameState: "NORMAL",
-    isMoving: false
+    isMoving: false,
+    isDoingSomething: "IDLE"
   };
   tvObject = {
     x: 110,
-    y: 200,
+    y: 200
   };
-  isFirstCanvasDraw = true;
+  //cuando cambiamos esta variable se llama a la funcion firstCanvasDraw para dibujar en el canvas cuando este listo (true)
+  private canvasChecker: boolean = false;
+  @Input()
+  set canvasReadyForDraw(value: boolean) {
+    this.canvasChecker = value;
+    this.firstCanvasDraw();
+  }
+  canvasObjectsReady = false;
   reductionFactor = 1;
 
   constructor() {
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+    this.background = new Image();
+    this.lain_right_1 = new Image();
+    this.lain_right_2 = new Image();
+    this.lain_left_1 = new Image();
+    this.lain_left_2 = new Image();
+    this.tv = new Image();
+    this.loadImages();
+    this.prepareCanvasObjects();
     this.audio = new Audio();
     this.audio.src = '/assets/audio/cyberia/lyr1.mp3';
   }
 
   ngAfterViewInit(): void {
-    this.ctx = this.canvas.nativeElement.getContext('2d');
-    this.loadImages();
-    //const isMobile = window.matchMedia("(max-width: 768px)").matches;
     this.adjustCanvasSize();
-    this.adjustCanvasObjects();
+    this.ctx = this.canvas.nativeElement.getContext('2d');
     console.log("ngAfterViewInit");
-  }
-
-  ngAfterViewChecked() {
-    if (this.isFirstCanvasDraw) {
-      this.firstCanvasDraw();
-      this.isFirstCanvasDraw = false;
-      console.log("ngAfterViewChecked");
-    }
   }
 
   ngOnInit(): void {
@@ -70,17 +75,18 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.audio.pause();
   }
 
-  private firstCanvasDraw(): void {
+  private prepareCanvasObjects(): void {
     this.background.onload = () => {
-      this.ctx!.drawImage(this.background, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
-    };
-
-    this.lain_right_1.onload = () => {
-      this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
-    };
-
-    this.tv.onload = () => {
-      this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
+      console.log("background ready");
+      this.lain_right_1.onload = () => {
+        console.log("lain_right_1 ready");
+        this.tv.onload = () => {
+          console.log("tv ready");
+          this.adjustCanvasObjects();
+          this.canvasObjectsReady = true;
+          this.canvasReadyForDraw = true;
+        };
+      };
     };
   }
 
@@ -127,6 +133,14 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.character.y = this.character.y * this.reductionFactor;
     this.tvObject.x = this.tvObject.x * this.reductionFactor;
     this.tvObject.y = this.tvObject.y * this.reductionFactor;
+  }
+
+  firstCanvasDraw() {
+    // Código para ejecutar cuando cambie la variable
+    console.log("canvasReadyForDraw: " + this.canvasChecker);
+    this.ctx!.drawImage(this.background, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
+    this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
+    this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
   }
 
   //GAME FUNCTIONS
@@ -205,6 +219,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   play(action: string): void {
+    if (!this.canvasObjectsReady) return;
     if (this.character.isMoving) return;
     if (this.character.x > this.INITIAL_CHARACTER_X * this.reductionFactor && action == "MOV_DERECHA") return;
     if (this.character.x <= this.INITIAL_CHARACTER_X * this.reductionFactor && action == "MOV_IZQUIERDA") return;
@@ -220,10 +235,17 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   private async slowLoopExecution(action: string): Promise<void> {
-    if (action === "MOV_IZQUIERDA") this.audio.pause();
     const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-
     const totalIterations = 60 * this.reductionFactor; //Practicamente es la distancia que se va a mover
+
+    if (action === "MOV_IZQUIERDA") {
+      this.audio.pause();
+      if (this.character.isDoingSomething === "DANCING") {
+        //Si esta bailando avisa que dejara de bailar y espera 370 ms que es lo maximo que podria tardar el paso de baile
+        this.character.isDoingSomething = "";
+        await delay(370);
+      }
+    }
 
     for (let i = 0; i < totalIterations; i++) {
       // Codigo que deseas ejecutar en cada iteracion del bucle
@@ -233,36 +255,46 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
       this.drawCharacter();
       await delay(85); // Tiempo entre animaciones en milisegundos
     }
+
     this.stopCharachter();
     this.character.isMoving = false;
-    if (action === "MOV_DERECHA") this.audio.play();
-    this.characterDance(60);
+
+    if (action === "MOV_DERECHA") {
+      this.audio.play();
+      this.characterDance();
+    }
+
   }
 
-  private async characterDance(totalIterations:number){
+  private async characterDance() {
+    let ladoBaile = true;
     const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-    for (let i = 0; i < totalIterations; i++) {
-      // Codigo que deseas ejecutar en cada iteracion del bucle
-      this.clearCanvas();
-      this.drawCanvasBackground();
-      if(i%2==0) {
+    this.character.isDoingSomething = "DANCING";
+    while (this.character.isDoingSomething === "DANCING") {
+      if (ladoBaile) {
         this.clearCanvas();
         this.drawCanvasBackground();
         this.updateCharacterAnimation("MOV_IZQUIERDA");
-        this.drawCharacter();await delay(185);
+        this.drawCharacter();
+        await delay(185);
         this.clearCanvas();
         this.drawCanvasBackground();
         this.updateCharacterAnimation("STOP");
-        this.drawCharacter();await delay(185);
-      } else{
+        this.drawCharacter();
+        await delay(185);
+        ladoBaile = false;
+      } else {
         this.clearCanvas();
         this.drawCanvasBackground();
         this.updateCharacterAnimation("MOV_DERECHA");
-        this.drawCharacter();await delay(185);
+        this.drawCharacter();
+        await delay(185);
         this.clearCanvas();
         this.drawCanvasBackground();
         this.updateCharacterAnimation("STOP");
-        this.drawCharacter();await delay(185);
+        this.drawCharacter();
+        await delay(185);
+        ladoBaile = true;
       }
     }
   }
