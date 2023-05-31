@@ -2,13 +2,19 @@
 
 <div class="d-flex justify-content-center">
     <canvas #gameCanvas></canvas>
-    <div class="d-block">
+    <div *ngIf="!this.isMobile" class="d-block">
       <button class="btn btn-light mb-1" (click)="play('MOV_DERECHA')">Play</button>
       <br>
       <button class="btn btn-light mb-1" (click)="play('MOV_IZQUIERDA')">Stop</button>
       <br>
       <button class="btn btn-light mb-1" (click)="nextSong()">Next</button>
     </div>
+</div>
+
+<div *ngIf="this.isMobile" class="d-flex justify-content-center mt-4">
+  <button class="btn btn-light mx-2" (click)="play('MOV_DERECHA')">Play</button>
+  <button class="btn btn-light mx-2" (click)="play('MOV_IZQUIERDA')">Stop</button>
+  <button class="btn btn-light mx-2" (click)="nextSong()">Next</button>
 </div>
 
 

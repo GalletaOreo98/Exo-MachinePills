@@ -30,7 +30,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     x: this.INITIAL_CHARACTER_X,
     y: this.CANVAS_SUELO,
     animationTime: 0,
-    estado: "NORMAL",
+    frameState: "NORMAL",
     isMoving: false
   };
   tvObject = {
@@ -138,10 +138,10 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
         this.character.animationTime++;
 
         if (this.character.animationTime == 1) {
-          this.character.estado = 'MOV_DERECHA';
+          this.character.frameState = 'MOV_DERECHA';
         }
         if (this.character.animationTime == 6) {
-          this.character.estado = 'NORMAL';
+          this.character.frameState = 'NORMAL';
           this.character.animationTime = -2;
         }
         break;
@@ -151,20 +151,20 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
         this.character.animationTime++;
 
         if (this.character.animationTime == 1) {
-          this.character.estado = 'MOV_IZQUIERDA';
+          this.character.frameState = 'MOV_IZQUIERDA';
         }
         if (this.character.animationTime == 6) {
-          this.character.estado = 'NORMAL2';
+          this.character.frameState = 'NORMAL2';
           this.character.animationTime = -2;
         }
         break;
       case 'STOP':
-        switch (this.character.estado) {
+        switch (this.character.frameState) {
           case 'MOV_DERECHA':
-            this.character.estado = 'NORMAL'
+            this.character.frameState = 'NORMAL'
             break;
           case 'MOV_IZQUIERDA':
-            this.character.estado = 'NORMAL2'
+            this.character.frameState = 'NORMAL2'
             break;
           default:
             break;
@@ -177,7 +177,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   private drawCharacter(): void {
-    switch (this.character.estado) {
+    switch (this.character.frameState) {
       case 'NORMAL':
         this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
         break;
@@ -206,8 +206,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   play(action: string): void {
     if (this.character.isMoving) return;
-    if (this.character.x > this.INITIAL_CHARACTER_X && action == "MOV_DERECHA") return;
-    if (this.character.x <= this.INITIAL_CHARACTER_X && action == "MOV_IZQUIERDA") return;
+    if (this.character.x > this.INITIAL_CHARACTER_X * this.reductionFactor && action == "MOV_DERECHA") return;
+    if (this.character.x <= this.INITIAL_CHARACTER_X * this.reductionFactor && action == "MOV_IZQUIERDA") return;
     this.character.isMoving = true;
     this.slowLoopExecution(action);
   }
@@ -237,7 +237,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   nextSong(): void {
-    if (this.character.x <= this.INITIAL_CHARACTER_X) return;
+    if (this.character.x <= this.INITIAL_CHARACTER_X * this.reductionFactor) return;
     this.currentSong++;
     if (this.currentSong > 3) {
       this.currentSong = 1;
