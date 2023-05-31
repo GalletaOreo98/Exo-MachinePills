@@ -6,27 +6,30 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
   styleUrls: ['./cyberia.component.css']
 })
 export class CyberiaComponent implements OnInit, AfterViewInit {
-
+  //CANVAS
   @ViewChild('gameCanvas', { static: false })
   canvas!: ElementRef<HTMLCanvasElement>;
 
   ctx!: CanvasRenderingContext2D | null;
 
-  isMobile: boolean | undefined;
-
+  //AUDIO
   private audio: HTMLAudioElement;
   private currentSong = 1;
 
-  //Canvas vars
-  background;
-  lain_right_1;
-  lain_right_2;
-  lain_left_1;
-  lain_left_2;
-  tv;
-  readonly CANVAS_SUELO = 472;
-  readonly INITIAL_CHARACTER_X = 180;
-  character = {
+  //CANVAS VARS
+  isMobile: boolean;
+
+  private background: HTMLImageElement;
+  private lain_right_1: HTMLImageElement;
+  private lain_right_2: HTMLImageElement;
+  private lain_left_1: HTMLImageElement;
+  private lain_left_2: HTMLImageElement;
+  private tv: HTMLImageElement;
+
+  private readonly CANVAS_SUELO = 472; //Suelo segun el background del canvas
+  private readonly INITIAL_CHARACTER_X = 180;
+
+  private character = {
     x: this.INITIAL_CHARACTER_X,
     y: this.CANVAS_SUELO,
     animationTime: 0,
@@ -34,19 +37,23 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     isMoving: false,
     isDoingSomething: "IDLE"
   };
-  tvObject = {
+
+  private tvObject = {
     x: 110,
     y: 200
   };
-  //cuando cambiamos esta variable se llama a la funcion firstCanvasDraw para dibujar en el canvas cuando este listo (true)
-  private canvasChecker: boolean = false;
+
+  /*Cuando cambiamos esta variable canvasReadyForDraw se modifica consigo la variable
+  canvasChecker y ademas se llama a la funcion firstCanvasDraw() para dibujar en el canvas
+  solamente cuando este listo (canvasChecker === true)*/
+  canvasChecker: boolean = false;
   @Input()
   set canvasReadyForDraw(value: boolean) {
     this.canvasChecker = value;
     this.firstCanvasDraw();
   }
-  canvasObjectsReady = false;
-  reductionFactor = 1;
+  canvasObjectsReady = false; //True cuando los objetos a dibujar en el canvas ya esten ajustados y listos para usar
+  reductionFactor = 1; //Factor de reduccion que se aplicara al canvas. Mobile x0.5, PC x1 (Original escale)
 
   constructor() {
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -56,10 +63,14 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.lain_left_1 = new Image();
     this.lain_left_2 = new Image();
     this.tv = new Image();
-    this.loadImages();
-    this.prepareCanvasObjects();
     this.audio = new Audio();
     this.audio.src = '/assets/audio/cyberia/lyr1.mp3';
+  }
+
+  ngOnInit(): void {
+    this.loadImages();
+    this.prepareCanvasObjects();
+    console.log("ngOnInit");
   }
 
   ngAfterViewInit(): void {
@@ -68,13 +79,11 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     console.log("ngAfterViewInit");
   }
 
-  ngOnInit(): void {
-  }
-
   ngOnDestroy(): void {
     this.audio.pause();
   }
 
+  //CANVAS ADJUST AND LOAD FUNCTIONS
   private prepareCanvasObjects(): void {
     this.background.onload = () => {
       console.log("background ready");
@@ -83,6 +92,9 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
         this.tv.onload = () => {
           console.log("tv ready");
           this.adjustCanvasObjects();
+          //Definir estilo de textos
+          this.ctx!.fillStyle = "white";
+          this.ctx!.font = `bold ${(15 * this.reductionFactor)}px Courier New`;
           this.canvasObjectsReady = true;
           this.canvasReadyForDraw = true;
         };
@@ -103,11 +115,11 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   private adjustCanvasSize(): void {
     if (this.isMobile) {
-      // Ajustar el tamaño del canvas al % del ancho y al % del alto de la pantalla en dispositivos móviles
+      //Ajustar canvas a tamaño dispositivos moviles
       this.canvas.nativeElement.width = 400;
       this.canvas.nativeElement.height = 300;
     } else {
-      // Ajustar canvas a tamaño para pc
+      //Ajustar canvas a tamaño para pc
       this.canvas.nativeElement.width = 800;
       this.canvas.nativeElement.height = 600;
     }
@@ -115,7 +127,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   private adjustCanvasObjects() {
     if (this.isMobile) {
-      this.reductionFactor = 0.5
+      this.reductionFactor = 0.5;
     } else {
       return;
     }
@@ -135,8 +147,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.tvObject.y = this.tvObject.y * this.reductionFactor;
   }
 
-  firstCanvasDraw() {
-    // Código para ejecutar cuando cambie la variable
+  private firstCanvasDraw() {
+    // Código para ejecutar cuando cambie la variable this.canvasReadyForDraw
     console.log("canvasReadyForDraw: " + this.canvasChecker);
     this.ctx!.drawImage(this.background, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
@@ -144,7 +156,6 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   //GAME FUNCTIONS
-
   private updateCharacterAnimation(action: string): void {
     switch (action) {
       case 'MOV_DERECHA':
@@ -211,7 +222,11 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   private drawCanvasBackground(): void {
     this.ctx!.drawImage(this.background, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
+    //Objetos y textos
+    //(No importa que tv este sobre el texto ya que la pantall del tv es semitransparente)
+    this.ctx!.fillText(`Sewerslvt - Cyberia lyr${this.currentSong}`, 200 * this.reductionFactor, 250 * this.reductionFactor);
     this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
+    
   }
 
   private clearCanvas(): void {
@@ -247,8 +262,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
       }
     }
 
+    //animacion que se hara segun la variable "action" que recibimos a traves del boton html
     for (let i = 0; i < totalIterations; i++) {
-      // Codigo que deseas ejecutar en cada iteracion del bucle
       this.clearCanvas();
       this.drawCanvasBackground();
       this.updateCharacterAnimation(action);
