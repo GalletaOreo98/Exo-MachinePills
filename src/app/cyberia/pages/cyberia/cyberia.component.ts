@@ -236,6 +236,35 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.stopCharachter();
     this.character.isMoving = false;
     if (action === "MOV_DERECHA") this.audio.play();
+    this.characterDance(60);
+  }
+
+  private async characterDance(totalIterations:number){
+    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    for (let i = 0; i < totalIterations; i++) {
+      // Codigo que deseas ejecutar en cada iteracion del bucle
+      this.clearCanvas();
+      this.drawCanvasBackground();
+      if(i%2==0) {
+        this.clearCanvas();
+        this.drawCanvasBackground();
+        this.updateCharacterAnimation("MOV_IZQUIERDA");
+        this.drawCharacter();await delay(185);
+        this.clearCanvas();
+        this.drawCanvasBackground();
+        this.updateCharacterAnimation("STOP");
+        this.drawCharacter();await delay(185);
+      } else{
+        this.clearCanvas();
+        this.drawCanvasBackground();
+        this.updateCharacterAnimation("MOV_DERECHA");
+        this.drawCharacter();await delay(185);
+        this.clearCanvas();
+        this.drawCanvasBackground();
+        this.updateCharacterAnimation("STOP");
+        this.drawCharacter();await delay(185);
+      }
+    }
   }
 
   nextSong(): void {
