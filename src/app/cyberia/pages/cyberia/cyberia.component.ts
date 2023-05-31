@@ -213,6 +213,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   private stopCharachter(): void {
+    this.clearCanvas();
+    this.drawCanvasBackground();
     this.updateCharacterAnimation("STOP");
     this.drawCharacter();
   }
