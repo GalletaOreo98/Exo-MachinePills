@@ -68,12 +68,11 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.loadImages();
-    this.prepareCanvasObjects();
-    console.log("ngOnInit");
   }
 
   ngAfterViewInit(): void {
+    this.prepareCanvasObjects();
+    this.loadImages();
     this.adjustCanvasSize();
     this.ctx = this.canvas.nativeElement.getContext('2d');
     console.log("ngAfterViewInit");
