@@ -15,7 +15,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   //AUDIO
   private audio: HTMLAudioElement;
-  private currentSong = 1;
+  private currentSong: number = 1;
 
   //CANVAS VARS
   isMobile: boolean;
@@ -56,22 +56,21 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   canvasObjectsReady = false; //True cuando los objetos a dibujar en el canvas ya esten ajustados y listos para usar
   reductionFactor = 1; //Factor de reduccion que se aplicara al canvas. Mobile x0.5, PC x1 (Original escale)
 
-  /*Cada vez que una imagen de "de primer dibujado" sea cargada, se actualiza canvasImagesChecker en +1 para 
-  que cuando llegue a 3 (que es el numero de imagenes de primer dibujado) se hagan los ultimos ajustes de
-  los objetos del canvas y luego se pinten las imagenes de primer dibujado*/
-  canvasImagesChecker: number = 0; //Numero de images de primer dibujado cargadas (Son 3)
+  /*Cada vez que se complete una unidad de progreso (carga de imagen o algun ajuste) se sumara +1 canvasLoadingProgressChecker
+  para que al llegar a el ultimo paso (canvasLoadingProgressChecker === 7) ya se puedan hacer los ultimos ajustes del canvas 
+  y dibujar en este*/
+  canvasLoadingProgressChecker: number = 0;
   @Input()
-  set canvasImagesReadyForDraw(value: number) {
-    this.canvasImagesChecker = value;
-    if (this.canvasImagesChecker === 3) {
-      console.log("All initial images loaded");
+  set canvasLoadingProgress(value: number) {
+    this.canvasLoadingProgressChecker = value;
+    if (this.canvasLoadingProgressChecker === 7) {
+      console.log("All images loaded");
       this.adjustCanvasObjects();
       //Definir estilo de textos
       this.ctx!.fillStyle = "white";
       this.ctx!.font = `bold ${(15 * this.reductionFactor)}px Courier New`;
       this.canvasObjectsReady = true;
-      this.canvasReadyForDraw = true;
-      this.firstCanvasDraw();
+      this.canvasReadyForDraw = true; //Esto activa this.firstCanvasDraw();
     }
   }
 
@@ -88,15 +87,16 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.loadImages();
-    this.prepareCanvasObjects();
+    this.setOnloadImagesEvents();
+    this.loadImagesSRC();
   }
 
   ngAfterViewInit(): void {
-    //this.prepareCanvasObjects();
     this.adjustCanvasSize();
     this.ctx = this.canvas.nativeElement.getContext('2d');
-    console.log("ngAfterViewInit");
+    console.log("getContext('2d') finished");
+    this.canvasLoadingProgressChecker++;
+    this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
   }
 
   ngOnDestroy(): void {
@@ -105,23 +105,41 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   //CANVAS ADJUST AND LOAD FUNCTIONS
 
-  private prepareCanvasObjects(): void {
+  private setOnloadImagesEvents(): void {
+    //Imagenes iniciales
     this.background.onload = () => {
-      this.canvasImagesChecker++;
-      this.canvasImagesReadyForDraw = this.canvasImagesChecker;
+      this.canvasLoadingProgressChecker++;
+      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
     };
     this.lain_right_1.onload = () => {
-      this.canvasImagesChecker++;
-      this.canvasImagesReadyForDraw = this.canvasImagesChecker;
+      this.canvasLoadingProgressChecker++;
+      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
 
     };
     this.tv.onload = () => {
-      this.canvasImagesChecker++;
-      this.canvasImagesReadyForDraw = this.canvasImagesChecker;
+      this.canvasLoadingProgressChecker++;
+      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
     };
+    //Demas imagenes
+    this.lain_right_2.onload = () => {
+      this.canvasLoadingProgressChecker++;
+      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
+
+    };
+    this.lain_left_1.onload = () => {
+      this.canvasLoadingProgressChecker++;
+      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
+
+    };
+    this.lain_left_2.onload = () => {
+      this.canvasLoadingProgressChecker++;
+      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
+
+    };
+    console.log("setOnloadImagesEvents finished");
   }
 
-  private loadImages(): void {
+  private loadImagesSRC(): void {
     //Imagenes iniciales
     this.background.src = 'assets/images/cyberia/background.png';
     this.lain_right_1.src = 'assets/images/cyberia/lain_right_1.png';
@@ -130,6 +148,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.lain_right_2.src = 'assets/images/cyberia/lain_right_2.png';
     this.lain_left_1.src = 'assets/images/cyberia/lain_left_1.png';
     this.lain_left_2.src = 'assets/images/cyberia/lain_left_2.png';
+    console.log("All images src loaded");
   }
 
   private adjustCanvasSize(): void {
@@ -142,12 +161,15 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
       this.canvas.nativeElement.width = 800;
       this.canvas.nativeElement.height = 600;
     }
+    console.log("adjustCanvasSize finished");
   }
 
   private adjustCanvasObjects() {
     if (this.isMobile) {
       this.reductionFactor = 0.5;
+      console.log("adjustCanvasObjects finished");
     } else {
+      console.log("adjustCanvasObjects finished");
       return;
     }
     this.lain_right_1.width = this.lain_right_1.width * this.reductionFactor;
