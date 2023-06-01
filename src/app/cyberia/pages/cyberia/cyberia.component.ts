@@ -1,6 +1,4 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -58,29 +56,24 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   canvasObjectsReady = false; //True cuando los objetos a dibujar en el canvas ya esten ajustados y listos para usar
   reductionFactor = 1; //Factor de reduccion que se aplicara al canvas. Mobile x0.5, PC x1 (Original escale)
 
-  // Esta funcion aqui es para solucionar la tardanza de la activacion del evento onload de las imagenes
-  prepareCanvasObjects(): Observable<any> {
-    return new Observable(observer => {
-      this.background.onload = () => {
-        console.log("background ready");
-        this.lain_right_1.onload = () => {
-          console.log("lain_right_1 ready");
-          this.tv.onload = () => {
-            console.log("tv ready");
-            this.adjustCanvasObjects();
-            //Definir estilo de textos
-            this.ctx!.fillStyle = "white";
-            this.ctx!.font = `bold ${(15 * this.reductionFactor)}px Courier New`;
-            this.canvasObjectsReady = true;
-            this.canvasReadyForDraw = true;
-            observer.next();
-            observer.complete();
-          };
-        };
-      };
-    });
+  /*Cada vez que una imagen de "de primer dibujado" sea cargada, se actualiza canvasImagesChecker en +1 para 
+  que cuando llegue a 3 (que es el numero de imagenes de primer dibujado) se hagan los ultimos ajustes de
+  los objetos del canvas y luego se pinten las imagenes de primer dibujado*/
+  canvasImagesChecker: number = 0; //Numero de images de primer dibujado cargadas (Son 3)
+  @Input()
+  set canvasImagesReadyForDraw(value: number) {
+    this.canvasImagesChecker = value;
+    if (this.canvasImagesChecker === 3) {
+      console.log("All initial images loaded");
+      this.adjustCanvasObjects();
+      //Definir estilo de textos
+      this.ctx!.fillStyle = "white";
+      this.ctx!.font = `bold ${(15 * this.reductionFactor)}px Courier New`;
+      this.canvasObjectsReady = true;
+      this.canvasReadyForDraw = true;
+      this.firstCanvasDraw();
+    }
   }
-  subscription: Subscription | undefined;
 
   constructor() {
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -95,17 +88,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.subscription = this.prepareCanvasObjects().subscribe(
-      {
-        next: () => {
-          console.log("Observer prepareCanvasObjects finished");
-        },
-        error: () => {
-          console.log("Error");
-        }
-      }
-    );
     this.loadImages();
+    this.prepareCanvasObjects();
   }
 
   ngAfterViewInit(): void {
@@ -117,28 +101,25 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
 
   ngOnDestroy(): void {
     this.audio.pause();
-    this.subscription?.unsubscribe();
   }
 
   //CANVAS ADJUST AND LOAD FUNCTIONS
 
-  /* private prepareCanvasObjects(): void {
+  private prepareCanvasObjects(): void {
     this.background.onload = () => {
-      console.log("background ready");
-      this.lain_right_1.onload = () => {
-        console.log("lain_right_1 ready");
-        this.tv.onload = () => {
-          console.log("tv ready");
-          this.adjustCanvasObjects();
-          //Definir estilo de textos
-          this.ctx!.fillStyle = "white";
-          this.ctx!.font = `bold ${(15 * this.reductionFactor)}px Courier New`;
-          this.canvasObjectsReady = true;
-          this.canvasReadyForDraw = true;
-        };
-      };
+      this.canvasImagesChecker++;
+      this.canvasImagesReadyForDraw = this.canvasImagesChecker;
     };
-  } */
+    this.lain_right_1.onload = () => {
+      this.canvasImagesChecker++;
+      this.canvasImagesReadyForDraw = this.canvasImagesChecker;
+
+    };
+    this.tv.onload = () => {
+      this.canvasImagesChecker++;
+      this.canvasImagesReadyForDraw = this.canvasImagesChecker;
+    };
+  }
 
   private loadImages(): void {
     //Imagenes iniciales
