@@ -4,6 +4,7 @@ import { CryptComponent } from './crypt.component';
 
 const routes: Routes = [
   { path: '', component: CryptComponent},
+  {path: 'poems',loadChildren: () => import('./modules/poems/poems.module').then(m => m.PoemsModule)},
   { path: '**', redirectTo: 'crypt'}
 ];
 

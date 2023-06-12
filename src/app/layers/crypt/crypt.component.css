@@ -17,3 +17,27 @@ span {
 .card-title {
     color: #ff648b;
 }
+
+.aurora-btn {
+    color: #D63384;
+    border-color: #D63384;
+    background-color: #000000;
+}
+
+.aurora-btn:hover {
+    background-color: #D63384;
+    color: #ffffff;
+}
+
+.aurora-btn:active {
+    background-color: #D63384;
+    color: #ffffff;
+    border-color: #D63384;
+}
+
+.aurora-btn:focus {
+    background-color: #D63384;
+    color: #ffffff;
+    border-color: #D63384;
+    box-shadow: none;
+}

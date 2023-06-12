@@ -1,0 +1,77 @@
+<div *ngIf="!isAddingNewPoem">
+
+  <div class="d-flex flex-wrap">
+    <div class="col-4 col-md-4 col-lg-2" *ngFor="let book of booksData">
+      <img src="assets/images/book.png" [alt]="book.title" class="col-12 px-4" (click)="open(book.title, book.author, book.content)">
+      <p style="text-align: center;" class="col-12 px-4">{{book.title}}</p>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4">
+    <button class="btn-post" (click)="isAddingNewPoem = true">Crear nuevo</button>
+  </div>
+
+</div>
+
+<div *ngIf="isAddingNewPoem" class="d-flex justify-content-center">
+  <div>
+    <h2>Agregar nuevo escrito</h2>
+    <form [formGroup]="poemForm" (ngSubmit)="submitForm()">
+      <div>
+        <div class="d-flex justify-content-center">
+          <label>Título:</label>
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="text" formControlName="title">
+        </div>
+        <div class="d-flex justify-content-center"
+          *ngIf="poemForm.get('title')!.errors  && (poemForm.get('title')!.dirty || poemForm.get('title')!.touched)">
+          <div *ngIf="poemForm.get('title')!.hasError('required')"><code>El título es requerido</code></div>
+          <div *ngIf="poemForm.get('title')!.hasError('minlength')">
+            <code>El título debe tener al menos 3 caracteres</code></div>
+          <div *ngIf="poemForm.get('title')!.hasError('maxlength')">
+            <code>El título no puede tener más de 50 caracteres</code>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex justify-content-center">
+          <label>Autor:</label>
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="text" formControlName="author">
+        </div>
+        <div>
+          <div class="d-flex justify-content-center"
+            *ngIf="poemForm.get('author')!.errors && (poemForm.get('author')!.dirty || poemForm.get('author')!.touched)">
+            <div *ngIf="poemForm.get('author')!.hasError('required')"><code>El autor es requerido</code></div>
+            <div *ngIf="poemForm.get('author')!.hasError('maxlength')">
+              <code>El autor no puede tener más de 30 caracteres</code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex justify-content-center">
+          <label>Contenido:</label><br>
+        </div>
+        <div class="d-flex justify-content-center">
+          <textarea formControlName="content"></textarea>
+        </div>
+        <div class="d-flex justify-content-center"
+          *ngIf="poemForm.get('content')!.errors && (poemForm.get('content')!.dirty || poemForm.get('content')!.touched)">
+          <div *ngIf="poemForm.get('content')!.hasError('required')"><code>El contenido es requerido</code></div>
+          <div *ngIf="poemForm.get('content')!.hasError('minlength')">
+            <code>El contenido debe tener al menos 10 caracteres</code>
+          </div>
+          <div *ngIf="poemForm.get('content')!.hasError('maxlength')">
+            <code>El contenido no puede tener más de 5000 caracteres</code>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center mt-4">
+        <button class="btn-post" type="submit">Publicar</button>
+      </div>
+    </form>
+  </div>
+</div>
