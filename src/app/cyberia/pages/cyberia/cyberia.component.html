@@ -1,6 +1,10 @@
 <div class="d-none d-sm-none d-md-none d-lg-block mt-4"></div>
 
 <div class="d-flex justify-content-center">
+  <p *ngIf="!this.canvasChecker" class="d-block mt-4">LOADING...</p>
+</div>
+
+<div class="d-flex justify-content-center">
     <canvas #gameCanvas></canvas>
     <div *ngIf="!this.isMobile" class="d-block">
       <button class="btn btn-light mb-1" (click)="play('MOV_DERECHA')">Play</button>
