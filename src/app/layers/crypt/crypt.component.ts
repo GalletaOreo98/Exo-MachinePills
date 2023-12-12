@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-crypt',
@@ -10,7 +11,8 @@ export class CryptComponent implements OnInit {
   private audio: HTMLAudioElement;
   body: any;
 
-  constructor(private renderer: Renderer2, private elementRef: ElementRef) { 
+  constructor(private renderer: Renderer2, private elementRef: ElementRef, private title: Title) { 
+    this.title.setTitle('Crypt');
     this.audio = new Audio();
     this.audio.src = '/assets/audio/creepy-cavern-ambience.mp3';
   }

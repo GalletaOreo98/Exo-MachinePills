@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Title } from "@angular/platform-browser";
 
 
 @Component({
@@ -74,7 +75,8 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor() {
+  constructor(private title: Title) {
+    this.title.setTitle('Cyberia');
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
     this.background = new Image();
     this.lain_right_1 = new Image();
