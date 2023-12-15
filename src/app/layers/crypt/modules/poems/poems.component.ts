@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { firebaseConfig } from "../../../../../environments/environment.prod";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { collection, addDoc, getFirestore, getDocs, query, where } from "firebase/firestore";
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -38,8 +37,6 @@ export class NgbdModalContent {
 }
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 const db = getFirestore(app);
 
 class Book {
