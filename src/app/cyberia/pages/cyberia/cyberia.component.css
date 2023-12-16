@@ -1,4 +1,25 @@
+.btn-ticket {
+    color: #ffd900;
+    border-color: #ffd900;
+}
 
+.btn-ticket:hover {
+    background-color: #c49d1f;
+    color: #ffffff;
+}
+
+.btn-ticket:active {
+    background-color: #c49d1f;
+    color: #ffffff;
+    border-color: #c49d1f;
+}
+
+.btn-ticket:focus {
+    background-color: #c49d1f;
+    color: #ffffff;
+    border-color: #c49d1f;
+    box-shadow: none;
+}
   
 
 /* #monitor{
