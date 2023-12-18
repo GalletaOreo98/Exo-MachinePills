@@ -18,6 +18,8 @@ const ticketRegisteredRef = doc(db, "view", "ticket_registered");
   styleUrls: ['./cyberia.component.css']
 })
 export class CyberiaComponent implements OnInit, AfterViewInit {
+  mostrarDescripcion: boolean = false; //Temporal para descargar cursor Lain chikita
+
   //CANVAS
   @ViewChild('gameCanvas', { static: false })
   canvas!: ElementRef<HTMLCanvasElement>;

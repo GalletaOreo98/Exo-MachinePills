@@ -5,14 +5,14 @@
 </div>
 
 <div class="d-flex justify-content-center">
-    <canvas #gameCanvas></canvas>
-    <div *ngIf="!this.isMobile" class="d-block">
-      <button class="btn btn-light mb-1" (click)="play('MOV_DERECHA')">Play</button>
-      <br>
-      <button class="btn btn-light mb-1" (click)="play('MOV_IZQUIERDA')">Stop</button>
-      <br>
-      <button class="btn btn-light mb-1" (click)="nextSong()">Next</button>
-    </div>
+  <canvas #gameCanvas></canvas>
+  <div *ngIf="!this.isMobile" class="d-block">
+    <button class="btn btn-light mb-1" (click)="play('MOV_DERECHA')">Play</button>
+    <br>
+    <button class="btn btn-light mb-1" (click)="play('MOV_IZQUIERDA')">Stop</button>
+    <br>
+    <button class="btn btn-light mb-1" (click)="nextSong()">Next</button>
+  </div>
 </div>
 
 <div *ngIf="this.isMobile" class="d-flex justify-content-center mt-4">
@@ -24,6 +24,33 @@
 <div class="d-flex justify-content-center mt-3">
   <button class="btn btn-lg btn-outline-primary btn-ticket  mx-2" (click)="registerVisit()">Registrar visita</button>
 </div>
+
+<!-- TEMPORAL -->
+<div class="container">
+  <div class="tarjeta d-flex flex-column align-items-center">
+    <img src="/assets/others-temp/cursores_lain_chikita.png" alt="Imagen de la tienda">
+    <h2>Lain Chikita Cursores</h2>
+    <p>Un pack de cursores de Lain Chikita para Windows <button class="btn btn-link"
+        (click)="mostrarDescripcion = !mostrarDescripcion;">
+        {{ mostrarDescripcion ? 'Ver menos' : 'Ver más...' }}
+      </button></p>
+    <p *ngIf="mostrarDescripcion">
+      Incluye:<br>
+      - 3 cursores principales (oscuro y claro) para: Flecha, AppStarting, Esperar<br>
+      - 14 variaciones de color y estilo<br>
+      - 2 imágenes de demostración<br>
+      - Autoinstalador (instalar.bat) para facilitar la configuración (no obligatorio)<br>
+      - Un archivo de texto (README.txt)<br>
+      - Un archivo de iconos (icon.ico)<br>
+      <br>
+      // Todos los cursores son animados.<br>
+      // Este paquete está comprimido en formato .rar, por lo que es necesario extraerlo
+    </p>
+    <a href="/assets/others-temp/cursores_lain_chikita.rar" download="cursores_lain_chikita.rar"
+      class="btn btn-primary">Descargar</a>
+  </div>
+</div>
+
 
 
 <!-- <div id="nickWrap">

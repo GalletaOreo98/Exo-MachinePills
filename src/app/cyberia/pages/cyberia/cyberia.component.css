@@ -20,7 +20,21 @@
     border-color: #c49d1f;
     box-shadow: none;
 }
-  
+
+/* Temporal */
+.tarjeta {
+    max-width: 400px;
+    margin: 0 auto; /* Para centrar la tarjeta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .tarjeta img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
 
 /* #monitor{
     background-color: rgb(25, 0, 255);
