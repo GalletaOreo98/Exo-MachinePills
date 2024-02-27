@@ -20,6 +20,7 @@ const routes: Routes = [
 
   //Error and redirect
   {path: 'error', loadChildren: () => import('./error-page/error-page.module').then( m => m.ErrorPageModule)},
+  {path: '.well-known/assetlinks.json'},
   {path: '**', component: HomeComponent},
 ];
 
