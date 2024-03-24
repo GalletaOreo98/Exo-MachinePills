@@ -1,132 +1,45 @@
-<div class="d-none d-sm-none d-md-none d-lg-block mt-4"></div>
+<app-layer-main-card 
+    [layerName]="layerMainData.layerName"
+    [layerText]="layerMainData.layerText"
+    [layerImgName]="layerMainData.layerImgName"
+></app-layer-main-card> <!-- 16/12/2020 -->
 
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/immersion/main.png"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <h3 class="card-title">Immersion</h3>
-                <p class="card-text">
-                    Es innegable que el mundo va cambiando. Desarrollo tecnológico, avances ya sea científicos o
-                    conceptuales; poco a poco se presenta una nueva visión de la realidad.
-                    Un enfoque reduccionista se queda corto al explicar ciertos comportamientos complejos. El
-                    pensamiento sistémico es una nueva forma para enfrentar la realidad.
-                </p>
-            </div>
-        </div>
-    </div>
-</div> <!-- 16/12/2020 -->
+<app-separator separatorSymbol="✺✹✺✹✺✹" separatorColor="#4201ba"></app-separator>
 
-<br>
+<app-img-text-card
+    [layerName]="layerMainData.layerName"
+    [cardText]="layerBodyData[0].cardText"
+    [imgName]="layerBodyData[0].imageName"
+    [footer]="layerBodyData[0].footer"
+></app-img-text-card>
 
-<div class="d-block d-sm-block d-md-block d-lg-none mb-4">
-    <div class="separator">
-        <span class="symbol">✺✹✺✹✺✹</span>
-        <span class="dash"></span>
-        <span class="symbol">✺✹✺✹✺✹</span>
-    </div>
-</div>
+<app-text-card
+    [cardText]="layerBodyData[1].cardText"
+    [footer]="layerBodyData[1].footer"   
+></app-text-card>
 
-<div class="d-none d-sm-none d-md-none d-lg-block separator-container">
-    <div class="separator">
-        <span class="symbol">✺✹✺✹✺✹✺✹✺✹✺✹</span>
-        <span class="dash"></span>
-        <span class="symbol">✺✹✺✹✺✹✺✹✺✹✺✹</span>
-    </div>
-</div>
+<app-text-card
+    [cardText]="layerBodyData[2].cardText"
+    [footer]="layerBodyData[2].footer"   
+></app-text-card>
 
-<br>
+<app-img-text-card
+    [layerName]="layerMainData.layerName"
+    [cardText]="layerBodyData[3].cardText"
+    [imgName]="layerBodyData[3].imageName"
+    [footer]="layerBodyData[3].footer"
+></app-img-text-card>
 
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/immersion/0.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <p class="card-text">
-                    Todo está conectado y todo interactúa. A medida cambiamos nuestra visión, notaremos como nuestro
-                    mundo se interconecta, y como es posible que acontecimientos lejanos nos afecten.
-                    Manejar sistemas es algo más complicado, y no funcionan las lógicas lineales simples. Existen
-                    problemas que solo pueden ser explicados tomando en cuenta el “todo” que los comprende y del que
-                    forman parte a través de su interacción. He aquí donde necesitamos dejar de lado un enfoque
-                    reduccionista y pasar a un enfoque de sistemas.
-                </p>
-                <footer class="blockquote-footer">22/09/2021</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-text-card
+    [cardText]="layerBodyData[4].cardText"
+    [footer]="layerBodyData[4].footer"   
+></app-text-card>
 
-<div class="card mx-auto">
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>Si pasas mucho tiempo en la oscuridad, cuando salgas de ella es muy probable que te moleste ver la luz.
-                Verás cosas que antes no podías, y cosas que veías ya no se verán.
-                Pasar de la oscuridad a la luz y viceversa requiere un esfuerzo similar, así que donde sea que vayas es
-                mejor no regresar.</p>
-            <footer class="blockquote-footer">21/09/2020</footer>
-        </blockquote>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>Escucha las pequeñas voces, ellas también tienen algo que decir.</p>
-            <footer class="blockquote-footer">26/09/2020</footer>
-        </blockquote>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/immersion/1.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <p class="card-text">
-                    La tecnología no espera por nadie, seguirá avanzando aunque no todos la entiendan.
-                </p>
-                <footer class="blockquote-footer">03/11/2021</footer>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>
-                La Web 3.0 trae consigo nuevos términos, nuevas tecnologías. No pueden detener el avance, por el miedo o
-                incomprensión de éste.
-                Blockchain, DApps, la descentralización de los datos, machine learning, procesamiento del lenguaje
-                natural, y más...
-            </p>
-            <footer class="blockquote-footer">03/09/2022</footer>
-        </blockquote>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/immersion/2.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <footer class="blockquote-footer">28/12/2022</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-img-card
+    [layerName]="layerMainData.layerName"
+    [imgName]="layerBodyData[5].imageName"
+    [footer]="layerBodyData[5].footer"
+></app-img-card>
 
 <br class="d-none d-sm-none d-md-block d-lg-block">
 

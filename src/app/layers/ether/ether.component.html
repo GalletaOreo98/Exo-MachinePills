@@ -1,107 +1,38 @@
-<div class="d-none d-sm-none d-md-none d-lg-block mt-4"></div>
+<app-layer-main-card 
+    [layerName]="layerMainData.layerName"
+    [layerText]="layerMainData.layerText"
+    [layerImgName]="layerMainData.layerImgName"
+></app-layer-main-card> <!-- 30/11/2020 -->
 
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/ether/main.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <h3 class="card-title">Ether</h3>
-                <p class="card-text">
-                    Con el suficiente poder, incluso el corazón más puro puede caer. <br>
-                    A más poder, más peligro de perder esa pureza que esta en tu corazón, si es que la hay. Ten cuidado.
-                </p>
-            </div>
-        </div>
-    </div>
-</div> <!-- 30/11/2020 -->
+<app-separator separatorSymbol="❀✿❀✿❀✿" separatorColor="#666666"></app-separator>
 
-<br>
+<app-text-card
+    [cardText]="layerBodyData[0].cardText"
+    [footer]="layerBodyData[0].footer"   
+></app-text-card>
 
-<div class="d-block d-sm-block d-md-block d-lg-none mb-4">
-    <div class="separator">
-        <span class="symbol">❀✿❀✿❀✿</span>
-        <span class="dash"></span>
-        <span class="symbol">❀✿❀✿❀✿</span>
-    </div>
-</div>
-
-<div class="d-none d-sm-none d-md-none d-lg-block separator-container">
-    <div class="separator">
-        <span class="symbol">❀✿❀✿❀✿❀✿❀✿❀✿</span>
-        <span class="dash"></span>
-        <span class="symbol">❀✿❀✿❀✿❀✿❀✿❀✿</span>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>
-                El bien y el mal van perdiendo sentido y quizá se van mezclando tus ideas a medida vas de una
-                sociedad a otra. Pues al final dichas palabras dependen de la sociedad en que estés.
-            </p>
-            <footer class="blockquote-footer">05/10/2020</footer>
-        </blockquote>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/ether/0.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <footer class="blockquote-footer">20/04/2021</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-img-card
+    [layerName]="layerMainData.layerName"
+    [imgName]="layerBodyData[1].imageName"
+    [footer]="layerBodyData[1].footer"
+></app-img-card>
 
 <br class="d-none d-sm-none d-md-none d-lg-block">
 
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/ether/1.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <footer class="blockquote-footer">09/05/2023</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-img-card
+    [layerName]="layerMainData.layerName"
+    [imgName]="layerBodyData[2].imageName"
+    [footer]="layerBodyData[2].footer"
+></app-img-card>
 
-<div class="card mx-auto">
-    <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>
-                La luz de la luna a culpables e inocentes ilumina por igual
-            </p>
-            <footer class="blockquote-footer">05/11/2020</footer> <!-- Warcraft -->
-        </blockquote>
-    </div>
-</div>
+<app-text-card
+    [cardText]="layerBodyData[3].cardText"
+    [footer]="layerBodyData[3].footer"   
+></app-text-card>
 
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/ether/2.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <p class="card-text">
-                    [[=◈^◈=]] Goodbye To A World
-                </p>
-                <footer class="blockquote-footer">08/06/2021</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-img-text-card
+    [layerName]="layerMainData.layerName"
+    [cardText]="layerBodyData[4].cardText"
+    [imgName]="layerBodyData[4].imageName"
+    [footer]="layerBodyData[4].footer"
+></app-img-text-card>

@@ -18,24 +18,24 @@ span {
     color: #ff648b;
 }
 
-.aurora-btn {
+.crypt-btn {
     color: #D63384;
     border-color: #D63384;
     background-color: #000000;
 }
 
-.aurora-btn:hover {
+.crypt-btn:hover {
     background-color: #D63384;
     color: #ffffff;
 }
 
-.aurora-btn:active {
+.crypt-btn:active {
     background-color: #D63384;
     color: #ffffff;
     border-color: #D63384;
 }
 
-.aurora-btn:focus {
+.crypt-btn:focus {
     background-color: #D63384;
     color: #ffffff;
     border-color: #D63384;

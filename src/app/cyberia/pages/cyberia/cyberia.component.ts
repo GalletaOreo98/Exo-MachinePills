@@ -1,23 +1,14 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { firebaseConfig } from "../../../../environments/environment.prod";
-import { initializeApp } from "firebase/app";
-import { doc, getFirestore, getDoc, updateDoc, increment } from "firebase/firestore";
-import { Title } from "@angular/platform-browser";
-
-//DATABASE CONFIG
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-//VIEWERS VARS
-let visitorsNumber = 0;
-const ticketRegisteredRef = doc(db, "view", "ticket_registered");
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cyberia',
+  standalone: true,
+  imports: [],
   templateUrl: './cyberia.component.html',
-  styleUrls: ['./cyberia.component.css']
+  styleUrl: './cyberia.component.css'
 })
-export class CyberiaComponent implements OnInit, AfterViewInit {
+export default class CyberiaComponent implements OnInit{
   mostrarDescripcion: boolean = false; //Temporal para descargar cursor Lain chikita
 
   //CANVAS
@@ -70,13 +61,13 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   reductionFactor = 1; //Factor de reduccion que se aplicara al canvas. Mobile x0.5, PC x1 (Original escale)
 
   /*Cada vez que se complete una unidad de progreso (carga de imagen o algun ajuste) se sumara +1 canvasLoadingProgressChecker
-  para que al llegar a el ultimo paso (canvasLoadingProgressChecker === 8) ya se puedan hacer los ultimos ajustes del canvas 
+  para que al llegar a el ultimo paso (canvasLoadingProgressChecker === 7) ya se puedan hacer los ultimos ajustes del canvas 
   y dibujar en este*/
   canvasLoadingProgressChecker: number = 0;
   @Input()
   set canvasLoadingProgress(value: number) {
     this.canvasLoadingProgressChecker = value;
-    if (this.canvasLoadingProgressChecker === 8) {
+    if (this.canvasLoadingProgressChecker === 7) {
       console.log("All images loaded");
       this.adjustCanvasObjects();
       //Definir estilo de textos
@@ -118,30 +109,7 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.audio.pause();
   }
 
-  async registerVisit() {
-    await updateDoc(ticketRegisteredRef, {
-      total: increment(1)
-    }).then(() => {
-      this.updateVisitorsNumber().then(() => {
-        this.updateVisitorsText();
-        console.log("registerVisit successfull!");
-      });
-    });
-  }
-
-  async updateVisitorsNumber() {
-    const docSnap = await getDoc(ticketRegisteredRef);
-
-    if (docSnap.exists()) {
-      visitorsNumber = docSnap.data()['total'];
-      console.log("visitorsNumber:", visitorsNumber);
-    } else {
-      console.log("No such document!");
-    }
-  }
-
   //CANVAS ADJUST AND LOAD FUNCTIONS
-
   private setOnloadImagesEvents(): void {
     //Imagenes iniciales
     this.background.onload = () => {
@@ -173,11 +141,6 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
       this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
 
     };
-    //Para que se inicialice el numero de visitantes antes de pintar el canvas
-    this.updateVisitorsNumber().then(() => {
-      this.canvasLoadingProgressChecker++;
-      this.canvasLoadingProgress = this.canvasLoadingProgressChecker;
-    });
     console.log("setOnloadImagesEvents finished");
   }
 
@@ -231,14 +194,11 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
   }
 
   private firstCanvasDraw() {
-    this.updateVisitorsNumber();
-    this.updateVisitorsText();
     // Código para ejecutar cuando cambie la variable this.canvasReadyForDraw
     console.log("canvasReadyForDraw: " + this.canvasChecker);
     this.ctx!.drawImage(this.background, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
     this.ctx!.drawImage(this.lain_right_1, this.character.x, this.character.y, this.lain_right_1.width, this.lain_right_1.height);
-    this.ctx!.fillText(`Visitors: ${visitorsNumber}`, 200 * this.reductionFactor, 280 * this.reductionFactor);
   }
 
   //GAME FUNCTIONS
@@ -311,7 +271,6 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     //Objetos y textos
     //(No importa que tv este sobre el texto ya que la pantalla del tv es semitransparente)
     this.ctx!.fillText(`Sewerslvt - Cyberia lyr${this.currentSong}`, 200 * this.reductionFactor, 250 * this.reductionFactor);
-    this.ctx!.fillText(`Visitors: ${visitorsNumber}`, 200 * this.reductionFactor, 280 * this.reductionFactor);
     this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
   }
 
@@ -332,14 +291,6 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.clearCanvas();
     this.drawCanvasBackground();
     this.updateCharacterAnimation("STOP");
-    this.drawCharacter();
-  }
-
-  private updateVisitorsText(): void {
-    this.clearCanvas();
-    this.ctx!.drawImage(this.background, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
-    this.ctx!.fillText(`Visitors: ${visitorsNumber}`, 200 * this.reductionFactor, 280 * this.reductionFactor);
-    this.ctx!.drawImage(this.tv, this.tvObject.x, this.tvObject.y, this.tv.width, this.tv.height);
     this.drawCharacter();
   }
 
@@ -417,5 +368,4 @@ export class CyberiaComponent implements OnInit, AfterViewInit {
     this.audio.src = `/assets/audio/cyberia/lyr${this.currentSong}.mp3`
     this.audio.play();
   }
-
 }
