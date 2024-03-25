@@ -80,17 +80,17 @@ export default class CyberiaComponent implements OnInit{
 
   constructor(private title: Title, private meta:Meta) {
     this.title.setTitle('Cyberia');
-    meta.updateTag({name: 'description', content: 'Welcome to Cyberia, we have cyberpunk ambiance. Enjoy your coffee!'});
-    meta.updateTag({name: 'keywords', content: 'Welcome to Cyberia, cyberpunk, Cyberia club, club, Exo-Machine, Exo, Machine, Exo-Machine Pills, serial experiments lain, or3odev, lain chikita, lain iwakura'});
-    meta.updateTag({name: 'author', content: 'GalletaOreo98'});
+    this.meta.updateTag({name: 'description', content: 'Welcome to Cyberia, we have cyberpunk ambiance. Enjoy your coffee!'});
+    this.meta.updateTag({name: 'keywords', content: 'Welcome to Cyberia, cyberpunk, Cyberia club, club, Exo-Machine, Exo, Machine, Exo-Machine Pills, serial experiments lain, or3odev, lain chikita, lain iwakura'});
+    this.meta.updateTag({name: 'author', content: 'GalletaOreo98'});
 
-    meta.updateTag({property: 'og:title', content: 'Cyberia'});
-    meta.updateTag({property: 'og:image', content: 'https://exo-machinepills.com/assets/images/cyberia/background.png'});
+    this.meta.updateTag({property: 'og:title', content: 'Cyberia'});
+    this.meta.updateTag({property: 'og:image', content: 'https://exo-machinepills.com/assets/images/cyberia/background.png'});
 
-    meta.updateTag({name: 'twitter:card', content: 'summary_large_image '});
-    meta.updateTag({name: 'twitter:title', content: 'Cyberia'});
-    meta.updateTag({name: 'twitter:description', content: 'Welcome to Cyberia, we have cyberpunk ambiance. Enjoy your coffee!'});
-    meta.updateTag({name: 'twitter:image', content: 'https://exo-machinepills.com/assets/images/cyberia/background.png'});
+    this.meta.updateTag({name: 'twitter:card', content: 'summary_large_image'});
+    this.meta.updateTag({name: 'twitter:title', content: 'Cyberia'});
+    this.meta.updateTag({name: 'twitter:description', content: 'Welcome to Cyberia, we have cyberpunk ambiance. Enjoy your coffee!'});
+    this.meta.updateTag({name: 'twitter:image', content: 'https://exo-machinepills.com/assets/images/cyberia/background.png'});
 
     this.isMobile = window.matchMedia("(max-width: 768px)").matches;
     this.background = new Image();
