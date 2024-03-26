@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
             </div>
             <div class="col-md-5">
                 <div class="card-body">
-                    <h3 class="card-title">{{layerName}}</h3>
+                    <h1 class="card-title">{{layerName}}</h1>
                     <p class="card-text"
                       [innerHTML]="layerText"
                     ></p>
