@@ -6,12 +6,11 @@ import { TextCardComponent } from '../shared/components/text-card.component';
 import { ImgCardComponent } from '../shared/components/img-card.component';
 import { layerBodyData, layerMainData } from '../shared/layers-data/immersion';
 import { Title } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-immersion',
   standalone: true,
-  imports: [RouterLink, SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent, ImgCardComponent],
+  imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent, ImgCardComponent],
   templateUrl: './immersion.component.html',
   styleUrl: './immersion.component.css'
 })

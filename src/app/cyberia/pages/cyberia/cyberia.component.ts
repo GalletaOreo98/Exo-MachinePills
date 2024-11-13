@@ -9,7 +9,6 @@ import { Meta, Title } from '@angular/platform-browser';
   styleUrl: './cyberia.component.css'
 })
 export default class CyberiaComponent implements OnInit{
-  mostrarDescripcion: boolean = false; //Temporal para descargar cursor Lain chikita
 
   //CANVAS
   @ViewChild('gameCanvas', { static: false })
