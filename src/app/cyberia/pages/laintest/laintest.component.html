@@ -1,0 +1,26 @@
+@if(!this.finished && this.questionsLoaded){
+    <div class="quiz-container mx-auto">
+        <p class="question">{{ questions[currentQuestionIndex].question }}</p>
+        @for(option of questions[currentQuestionIndex].options; track option.text){
+            <div class="option-container">
+                <button class="option-button" (click)="selectOption(option);">
+                    {{ option.text }}
+                </button>
+            </div>
+        }
+    </div>
+} 
+@if(this.finished) {
+    <div class="result-container">
+        <p class="result-header">¡Test Finalizado!</p>
+        <p class="result-text">Tu personalidad es: <span class="personality">{{ testResult }}</span></p>
+        <a [href]="testResultImage" download="lain-test-result-image.png" class="download-button">
+            Descargar
+        </a>
+    </div>
+
+     <!-- Imagen grande y fuera del contenedor principal -->
+     <div class="image-container">
+        <img [src]="testResultImage" alt="Imagen de test personalidad lain" class="result-image">
+    </div>
+}

@@ -1,0 +1,124 @@
+[
+  {
+      "question": "Cuando hay una decisión muy importante que debes de tomar lo antes posible:",
+      "options": [
+          { "text": "Actúas rápidamente confiando en tu instinto y tus habilidades", "personalities": ["LB"] },
+          { "text": "Te detienes a pensarlo un poco más antes de actuar", "personalities": ["LG"] },
+          { "text": "Te abrumas y pides ayuda a alguien más", "personalities": ["LD"] }
+      ]
+  },
+  {
+      "question": "En un día lluvioso prefiero:",
+      "options": [
+          { "text": "Permanecer en casa, tomar una bebida caliente y quizá dormir; la lluvia es relajante", "personalities": ["LO", "LD"] },
+          { "text": "Leer o hacer algo creativo; la lluvia me inspira", "personalities": ["LG"] },
+          { "text": "Salir a disfrutar bajo la lluvia; es divertido", "personalities": ["LT"] }
+      ]
+  },
+  {
+      "question": "Ante un cambio de planes repentino:",
+      "options": [
+          { "text": "No pasa nada, me adapto", "personalities": ["LG", "LB"] },
+          { "text": "Me estreso y trato de adaptarme", "personalities": ["LT"] }
+      ]
+  },
+  {
+      "question": "En un mundo cada vez más conectado te sientes:",
+      "options": [
+          { "text": "Con entusiasmo de poder intercambiar conocimiento con otras personas", "personalities": ["LG", "LV"] },
+          { "text": "Más desconectado(a)", "personalities": ["LD"] },
+          { "text": "Con miedo a las implicaciones de privacidad y seguridad que esto tiene", "personalities": ["LD"] },
+          { "text": "Te da igual", "personalities": ["LV"] }
+      ]
+  },
+  {
+      "question": "Tu habitación es:",
+      "options": [
+          { "text": "Admirable y perfecta, seguramente mejor que la de cualquiera", "personalities": ["LN"] },
+          { "text": "¡Una habitación gamer!", "personalities": ["LV"] },
+          { "text": "Acogedora", "personalities": ["LO"] },
+          { "text": "Prefiero no hablar de eso…", "personalities": ["LD"] },
+          { "text": "Limpio y ordenado, con todo lo necesario", "personalities": ["LG", "LT"] }
+      ]
+  },
+  {
+      "question": "¿Te es fácil hablar abiertamente en público?",
+      "options": [
+          { "text": "Sí", "personalities": ["LN", "LB", "LV"] },
+          { "text": "Ni bien ni mal", "personalities": ["LO", "LG"] },
+          { "text": "No", "personalities": ["LD", "LT"] }
+      ]
+  },
+  {
+      "question": "Entre ser la persona más lista del mundo o ser la más tonta prefiero:",
+      "options": [
+          { "text": "Ser la más lista", "personalities": ["LN"] },
+          { "text": "Ser la más tonta", "personalities": ["LT", "LO"] }
+      ]
+  },
+  {
+      "question": "Si le caigo mal a alguien es porque:",
+      "options": [
+          { "text": "Me tiene envidia", "personalities": ["LN"] },
+          { "text": "Quizá no me conoce lo suficiente (suelo caerle bien a la mayoría)", "personalities": ["LO"] },
+          { "text": "Es parte de la vida, siempre hay alguien así", "personalities": ["LV", "LB", "LG"] },
+          { "text": "Soy inútil, yo también me odio", "personalities": ["LD"] }
+      ]
+  },
+  {
+      "question": "En mis conversaciones suelo:",
+      "options": [
+          { "text": "Tomar el control de esta y dirigirla a donde guste", "personalities": ["LN", "LB"] },
+          { "text": "Ser amable y educado(a)", "personalities": ["LO", "LG"] },
+          { "text": "Mostrar interés en hablar abiertamente y de forma extensa", "personalities": ["LV"] },
+          { "text": "No hablar mucho", "personalities": ["LD", "LT"] }
+      ]
+  },
+  {
+      "question": "Las mentiras son:",
+      "options": [
+          { "text": "Una buena herramienta que sé usar", "personalities": ["LN"] },
+          { "text": "Malas", "personalities": ["LO"] },
+          { "text": "Son parte de socializar, solo no debes excederte", "personalities": ["LV"] }
+      ]
+  },
+  {
+      "question": "Si un gato está atrapado en un árbol:",
+      "options": [
+          { "text": "Trepo el árbol inmediatamente y lo bajo por mi propia cuenta", "personalities": ["LB"] },
+          { "text": "Busco herramientas para bajarlo de forma fácil", "personalities": ["LG"] },
+          { "text": "Llamo a alguien más para que lo haga", "personalities": ["LO"] },
+          { "text": "Me quedo a observar", "personalities": ["LT"] },
+          { "text": "Tengo mejores cosas que hacer, paso", "personalities": ["LN"] }
+      ]
+  },
+  {
+      "question": "¿Te gusta la fama?",
+      "options": [
+          { "text": "Sí", "personalities": ["LV", "LN"] },
+          { "text": "No", "personalities": ["NULL"] }
+      ]
+  },
+  {
+      "question": "¿Sueles contar chistes a tus amigos y bromear amistosamente?",
+      "options": [
+          { "text": "Sí", "personalities": ["LV"] },
+          { "text": "A veces", "personalities": ["LV"] },
+          { "text": "No", "personalities": ["LD", "LT"] }
+      ]
+  },
+  {
+      "question": "Si te piden que lideres un equipo, ¿lo haces?",
+      "options": [
+          { "text": "¡Por supuesto que sí! Lo llevo en la sangre", "personalities": ["LB"] },
+          { "text": "Prefiero no hacerlo", "personalities": ["LD"] }
+      ]
+  },
+  {
+      "question": "Estás en una competencia y tienes la oportunidad de ganar, pero implica hacer trampa:",
+      "options": [
+          { "text": "No haré trampa, soy una persona justa", "personalities": ["LB", "LO"] },
+          { "text": "Si soy tan listo(a) para hacer trampa sin que se den cuenta entonces merezco la victoria", "personalities": ["LN"] }
+      ]
+  }
+]
