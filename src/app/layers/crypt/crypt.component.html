@@ -1,95 +1,31 @@
-<div class="d-none d-sm-none d-md-none d-lg-block mt-4"></div>
-
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/crypt/main.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <h3 class="card-title">Crypt</h3>
-                <p class="card-text">
-                    Creí poder ocultar mis actos, pero siempre alguien me observaba.
-                </p>
-
-            </div>
-        </div>
-    </div>
-</div> <!-- 18/09/2020 -->
+<app-layer-main-card 
+    [layerName]="layerMainData.layerName"
+    [layerText]="layerMainData.layerText"
+    [layerImgName]="layerMainData.layerImgName"
+></app-layer-main-card> <!-- 18/09/2020 -->
 
 <app-separator separatorSymbol="✞✞✞✞✞✞" separatorColor="#D63384"></app-separator>
 
+<app-text-card
+    [cardText]="layerBodyData[0].cardText"
+    [footer]="layerBodyData[0].footer"   
+></app-text-card>
 
-<div class="card mx-auto mt-3">
-    <div class="card-body">
-        <blockquote class="blockquote mb-0 card-text" style="font-size: medium;">
-            <p>
-                ¿Por qué estás en la red?
-                ¿Buscas algo? ¿A alguien?
-                ¿Te buscas a tí mismo?
-                ¿Buscas tu identidad?
-                ¿Buscas proyectar tu identidad en otros?
-                ¿Por qué estás en la red?
-                ¿Quieres ser uno contigo mismo?
-                ¿Quieres ser uno con el mundo?
-                ¿Quieres ser uno con Dios?
-                ¿Quieres ser uno con todos?
-                ¿Por qué estás en la red?
-                ¿Quieres saber como encontrar el camino?
-                ¿Quieres guiar a otros en su camino?
-                ¿Hacer un pacto oscuro?
-                ¿Por qué estás en la red?
-                ¿Quieres encontrar el amor?
-                ¿Encontrar amor en los otros?
-                ¿Quieres encontrar la red?
-                ¿Crees que es un pacto oscuro con Dios?
-                ¿Por qué estás en la red?
-                ¿Eres un fantasma en la red?
-                ¿Eres tú la red?
-            </p>
-            <footer class="blockquote-footer">11/05/2023</footer>
-        </blockquote>
-    </div>
-</div>
-
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/crypt/0.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <p class="card-text">
-                    ¿En verdad quieres dejar de ser observado completamente?
-                    Siempre hay alguien que te observa, donde sea que vayas.
-                    Me pregunto si quieres que ese alguien desaparezca...
-                </p>
-                <footer class="blockquote-footer">07/02/2021</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-img-text-card
+    [layerName]="layerMainData.layerName"
+    [cardText]="layerBodyData[1].cardText"
+    [imgName]="layerBodyData[1].imageName"
+    [footer]="layerBodyData[1].footer"
+></app-img-text-card>
 
 <br class="d-none d-sm-none d-md-none d-lg-block">
 
-<div class="card mx-auto">
-    <div class="row g-0">
-        <div class="col-md-7">
-            <img src="/assets/images/layers/crypt/1.jpg"
-                class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-5">
-            <div class="card-body">
-                <p class="card-text">
-                    <code>*Wired sound*</code>
-                </p>
-                <footer class="blockquote-footer">26/03/2023</footer>
-            </div>
-        </div>
-    </div>
-</div>
+<app-img-text-card
+    [layerName]="layerMainData.layerName"
+    [cardText]="layerBodyData[2].cardText"
+    [imgName]="layerBodyData[2].imageName"
+    [footer]="layerBodyData[2].footer"
+></app-img-text-card>
 
 <br class="d-none d-sm-none d-md-block d-lg-block">
 
