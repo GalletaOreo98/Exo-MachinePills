@@ -100,6 +100,9 @@ export default class CyberiaComponent implements OnInit{
     this.tv = new Image();
     this.audio = new Audio();
     this.audio.src = '/assets/audio/cyberia/lyr1.mp3';
+    this.audio.addEventListener('ended', () => {
+      this.nextSong();
+    });
   }
 
   ngOnInit(): void {
