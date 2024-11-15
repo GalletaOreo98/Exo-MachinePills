@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { layerMainData } from '../shared/layers-data/crypt';
 import { SeparatorComponent } from '../shared/components/separator.component';
@@ -11,6 +11,7 @@ import { TextCardComponent } from '../shared/components/text-card.component';
   standalone: true,
   imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent],
   templateUrl: './crypt.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrl: './crypt.component.css'
 })
 export class CryptComponent implements OnInit{
