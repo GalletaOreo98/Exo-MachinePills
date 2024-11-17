@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Aurora",
     layerText: "Let's color all the ways.",
     layerImgName: "main.jpg",
+    imgWidth: 736,
+    imgHeight: 1040
 };
 
 export const layerBodyData:IlayerBodyData = [

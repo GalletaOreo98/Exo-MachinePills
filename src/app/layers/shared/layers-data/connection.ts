@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Connection",
     layerText: "No existe un lugar para esconderte. Donde sea que vayas, todos están conectados.",
     layerImgName: "main.gif",
+    imgWidth: 660,
+    imgHeight: 471
 };
 
 export const layerBodyData:IlayerBodyData = [

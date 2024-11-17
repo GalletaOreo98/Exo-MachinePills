@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Crypt",
     layerText: "Creí poder ocultar mis actos, pero siempre alguien me observaba.",
     layerImgName: "main.jpg",
+    imgWidth: 1435,
+    imgHeight: 706
 };
 
 

@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Essence",
     layerText: "Detrás de las cosas que vemos parecen existir ideas gracias a las cuales entendemos ese caos de materia cambiante que conforma los paisajes por los que nos movemos. Cuando vemos un olivo sabemos que eso es un árbol, y cuando vemos un pino, que es muy diferente, también sabemos que es un árbol. <br> Las ideas sirven para permitirnos pensar correctamente y no perdernos en la confusión constante, ya que, si están bien fundamentadas, son válidas en todas partes.",
     layerImgName: "main.jpg",
+    imgWidth: 720,
+    imgHeight: 960
 };
 
 export const layerBodyData:IlayerBodyData = [

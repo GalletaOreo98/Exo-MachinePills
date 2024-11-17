@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Immersion",
     layerText: "Es innegable que el mundo va cambiando. Desarrollo tecnológico, avances ya sea científicos o conceptuales; poco a poco se presenta una nueva visión de la realidad. Un enfoque reduccionista se queda corto al explicar ciertos comportamientos complejos. El pensamiento sistémico es una nueva forma para enfrentar la realidad.",
     layerImgName: "main.png",
+    imgWidth: 640,
+    imgHeight: 799
 };
 
 export const layerBodyData:IlayerBodyData = [

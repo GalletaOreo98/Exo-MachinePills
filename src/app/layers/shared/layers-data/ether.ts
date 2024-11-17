@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Ether",
     layerText: "Con el suficiente poder, incluso el corazón más puro puede caer. <br> A más poder, más peligro de perder esa pureza que esta en tu corazón, si es que la hay. Ten cuidado.",
     layerImgName: "main.jpg",
+    imgWidth: 637,
+    imgHeight: 637
 };
 
 export const layerBodyData:IlayerBodyData = [

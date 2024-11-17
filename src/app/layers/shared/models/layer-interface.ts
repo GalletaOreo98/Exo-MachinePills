@@ -1,7 +1,9 @@
 export interface IlayerMainData {
     layerName:string,
     layerText:string,
-    layerImgName:string
+    layerImgName:string,
+    imgWidth:number,
+    imgHeight:number
 };
 
 export interface IlayerBodyData extends Array<IlayerBodyElement> {};

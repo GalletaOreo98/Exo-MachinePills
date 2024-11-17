@@ -4,6 +4,8 @@ export const layerMainData:IlayerMainData = {
     layerName: "Wadom",
     layerText: "Los datos son más importantes de lo que crees. Muchos luchan por protegerlos, otros los intentan robar e incluso otros los compran. Recuerda que de los datos puedes extraer información, y la información te servirá para obtener un conocimiento.",
     layerImgName: "main.jpg",
+    imgWidth: 640,
+    imgHeight: 833
 };
 
 export const layerBodyData:IlayerBodyData = [
