@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { SeparatorComponent } from '../shared/components/separator.component';
 import { LayerMainCardComponent } from '../shared/components/layer-main-card.component';
@@ -11,6 +11,7 @@ import { layerMainData, layerBodyData } from "../shared/layers-data/connection";
   standalone: true,
   imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent],
   templateUrl: './connection.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrl: './connection.component.css'
 })
 export class ConnectionComponent {

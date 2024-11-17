@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { SeparatorComponent } from '../shared/components/separator.component';
 import { LayerMainCardComponent } from '../shared/components/layer-main-card.component';
 import { ImgTextCardComponent } from '../shared/components/img-text-card.component';
@@ -12,6 +12,7 @@ import { layerBodyData, layerMainData } from '../shared/layers-data/ether';
   standalone: true,
   imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent, ImgCardComponent],
   templateUrl: './ether.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrl: './ether.component.css'
 })
 export class EtherComponent {

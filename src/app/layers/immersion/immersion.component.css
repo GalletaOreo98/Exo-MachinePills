@@ -1,22 +1,3 @@
-.aurora-btn {
-    color: #4201ba;
-    border-color: #4201ba;
-}
-
-.aurora-btn:hover {
-    background-color: #4201ba;
-    color: #ffffff;
-}
-
-.aurora-btn:active {
-    background-color: #4201ba;
-    color: #ffffff;
-    border-color: #4201ba;
-}
-
-.aurora-btn:focus {
-    background-color: #4201ba;
-    color: #ffffff;
-    border-color: #4201ba;
-    box-shadow: none;
+.placeholder-img {
+    background-color: #011C4B;
 }

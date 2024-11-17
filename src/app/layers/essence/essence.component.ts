@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { SeparatorComponent } from '../shared/components/separator.component';
 import { LayerMainCardComponent } from '../shared/components/layer-main-card.component';
 import { ImgTextCardComponent } from '../shared/components/img-text-card.component';
@@ -12,6 +12,7 @@ import { Title } from '@angular/platform-browser';
   standalone: true,
   imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent, ImgCardComponent],
   templateUrl: './essence.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrl: './essence.component.css'
 })
 export class EssenceComponent {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ModalBasicComponent } from './modal-basic/modal-basic.component';
 import { SeparatorComponent } from '../shared/components/separator.component';
@@ -12,6 +12,7 @@ import { ImgCardComponent } from '../shared/components/img-card.component';
   standalone: true,
   imports: [ModalBasicComponent, SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, ImgCardComponent],
   templateUrl: './aurora.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrl: './aurora.component.css'
 })
 export class AuroraComponent {

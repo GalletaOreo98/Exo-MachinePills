@@ -41,3 +41,7 @@ span {
     border-color: #D63384;
     box-shadow: none;
 }
+
+.placeholder-img {
+    background-color: #d633843d;
+}
