@@ -3,16 +3,16 @@
       "question": "Cuando hay una decisión muy importante que debes de tomar lo antes posible:",
       "options": [
           { "text": "Actúas rápidamente confiando en tu instinto y tus habilidades", "personalities": ["LB"] },
-          { "text": "Te detienes a pensarlo un poco más antes de actuar", "personalities": ["LG"] },
+          { "text": "Te detienes a pensarlo un poco más antes de actuar", "personalities": ["LG", "LGL"] },
           { "text": "Te abrumas y pides ayuda a alguien más", "personalities": ["LD"] }
       ]
   },
   {
       "question": "En un día lluvioso prefiero:",
       "options": [
-          { "text": "Permanecer en casa, tomar una bebida caliente y quizá dormir; la lluvia es relajante", "personalities": ["LO", "LD"] },
-          { "text": "Leer o hacer algo creativo; la lluvia me inspira", "personalities": ["LG"] },
-          { "text": "Salir a disfrutar bajo la lluvia; es divertido", "personalities": ["LT"] }
+          { "text": "Permanecer en casa y/o tomar una bebida caliente y/o quizá dormir", "personalities": ["LO", "LD"] },
+          { "text": "Leer o hacer algo creativo", "personalities": ["LG"] },
+          { "text": "Salir a disfrutar bajo la lluvia", "personalities": ["LT"] }
       ]
   },
   {
@@ -27,8 +27,8 @@
       "options": [
           { "text": "Con entusiasmo de poder intercambiar conocimiento con otras personas", "personalities": ["LG", "LV"] },
           { "text": "Más desconectado(a)", "personalities": ["LD"] },
-          { "text": "Con miedo a las implicaciones de privacidad y seguridad que esto tiene", "personalities": ["LD"] },
-          { "text": "Te da igual", "personalities": ["LV"] }
+          { "text": "Con miedo a las implicaciones de privacidad y seguridad que esto tiene", "personalities": ["LD", "LGL"] },
+          { "text": "Te da igual", "personalities": ["NULL"] }
       ]
   },
   {
@@ -60,9 +60,10 @@
       "question": "Si le caigo mal a alguien es porque:",
       "options": [
           { "text": "Me tiene envidia", "personalities": ["LN"] },
-          { "text": "Quizá no me conoce lo suficiente (suelo caerle bien a la mayoría)", "personalities": ["LO"] },
+          { "text": "Quizá no me conoce lo suficiente", "personalities": ["LO"] },
           { "text": "Es parte de la vida, siempre hay alguien así", "personalities": ["LV", "LB", "LG"] },
-          { "text": "Soy inútil, yo también me odio", "personalities": ["LD"] }
+          { "text": "Soy inútil, yo también me odio", "personalities": ["LD"] },
+          { "text": "No lo sé", "personalities": ["LT"] }
       ]
   },
   {
@@ -89,7 +90,7 @@
           { "text": "Busco herramientas para bajarlo de forma fácil", "personalities": ["LG"] },
           { "text": "Llamo a alguien más para que lo haga", "personalities": ["LO"] },
           { "text": "Me quedo a observar", "personalities": ["LT"] },
-          { "text": "Tengo mejores cosas que hacer, paso", "personalities": ["LN"] }
+          { "text": "Tengo mejores cosas que hacer... paso", "personalities": ["LN"] }
       ]
   },
   {
@@ -100,17 +101,17 @@
       ]
   },
   {
-      "question": "¿Sueles contar chistes a tus amigos y bromear amistosamente?",
+      "question": "¿Sueles contar chistes a tus amigos y/o bromear amistosamente?",
       "options": [
           { "text": "Sí", "personalities": ["LV"] },
-          { "text": "A veces", "personalities": ["LV"] },
+          { "text": "A veces", "personalities": ["NULL"] },
           { "text": "No", "personalities": ["LD", "LT"] }
       ]
   },
   {
       "question": "Si te piden que lideres un equipo, ¿lo haces?",
       "options": [
-          { "text": "¡Por supuesto que sí! Lo llevo en la sangre", "personalities": ["LB"] },
+          { "text": "¡Por supuesto que sí!", "personalities": ["LB"] },
           { "text": "Prefiero no hacerlo", "personalities": ["LD"] }
       ]
   },

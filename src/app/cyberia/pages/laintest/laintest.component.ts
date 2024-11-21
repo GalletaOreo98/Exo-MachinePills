@@ -28,7 +28,8 @@ export class LaintestComponent implements OnInit{
     LT: 0,//LAIN_TORPE
     LN: 0,//LAIN_NARCISISTA
     LV: 0,//LAIN_VIRTUAL
-    LGL: 0//LAIN_GLITCH
+    LGL: 0,//LAIN_GLITCH
+    NULL: 0//COMODIN
   };
 
   personalityImages: { [key: string]: string } = {
