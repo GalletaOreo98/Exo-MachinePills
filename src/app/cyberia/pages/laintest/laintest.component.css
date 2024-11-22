@@ -18,16 +18,16 @@
 }
 
 .option-button {
-    background-color: #774a4a;
+    background-color: #2a4869;
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 15px 15px;
     font-size: 1em;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .option-button:hover {
@@ -76,23 +76,11 @@
     object-fit: contain;
 }
 
-
-@media (max-width: 768px) {
-    .result-image {
-        max-width: 90vw;
-    }
-
-    .quiz-container {
-        border-radius: 0%;
-        margin-top: 15%;
-    }
-}
-
 .download-button {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 10px;
-    background-color: #328835; 
+    background-color: #328835;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -103,4 +91,74 @@
 
 .download-button:hover {
     background-color: #79d37e;
+}
+
+.novel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    opacity: 1;
+    transition: opacity 1s ease-in-out; /* Animación de desvanecimiento */
+}
+
+.character-image {
+    padding-right: 20px; /* Para que quede un poco más centrada */
+    width: 25rem;
+    max-width: 712px;
+}
+
+.tex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 35rem;
+}
+
+.text-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    font-size: 20px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.novel-container.fade-out {
+    opacity: 0;
+}
+
+.skip-btn {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 2px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .result-image {
+        max-width: 90vw;
+    }
+
+    .quiz-container {
+        border-radius: 0%;
+        margin-top: 15%;
+    }
+
+    .character-image {
+        width: 75%;
+    }
+
+    .tex-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        max-width: 100%;
+    }
 }

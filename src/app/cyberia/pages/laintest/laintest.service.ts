@@ -16,7 +16,7 @@ export interface Option {
   providedIn: 'root'
 })
 export class LaintestService {
-  private questionsUrl = 'assets/questions.json'; // Ruta a tu archivo JSON
+  private questionsUrl = 'assets/data/lain-test/questions.json'; // Ruta a tu archivo JSON
 
   constructor(private http: HttpClient) { }
 
