@@ -1,6 +1,8 @@
 @if (isDialoguing) {
     <div #novelContainer class="novel-container mt-4" (click)="advanceText()">
-        <img src="assets/images/lain-test/personaje.png" alt="Personaje" class="character-image">
+        <div style="background-color: rgba(0, 0, 0, 0);" class="character-image-container">
+            <img src="assets/images/lain-test/personaje.png" alt="Personaje" class="character-image">
+        </div>
         <div class="tex-container">
             <div class="text-box mt-4">
                 <p style="user-select: none;">{{ displayedText }}</p>

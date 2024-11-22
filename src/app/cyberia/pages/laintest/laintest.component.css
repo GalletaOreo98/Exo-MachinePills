@@ -103,8 +103,17 @@
     transition: opacity 1s ease-in-out; /* Animación de desvanecimiento */
 }
 
+.character-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 25rem;
+    aspect-ratio: 712/840;
+    margin-right: 30px; /* Para que quede un poco más centrada */
+}
+
 .character-image {
-    padding-right: 20px; /* Para que quede un poco más centrada */
     width: 25rem;
     max-width: 712px;
 }
@@ -152,8 +161,12 @@
         margin-top: 15%;
     }
 
-    .character-image {
+    .character-image-container {
         width: 75%;
+    }
+
+    .character-image {
+        width: 100%;
     }
 
     .tex-container {
