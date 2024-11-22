@@ -10,7 +10,7 @@
   {
       "question": "En un día lluvioso prefiero:",
       "options": [
-          { "text": "Permanecer en casa y/o tomar una bebida caliente y/o quizá dormir", "personalities": ["LO", "LD"] },
+          { "text": "Tomar una bebida caliente o quizá dormir", "personalities": ["LO", "LD"] },
           { "text": "Leer o hacer algo creativo", "personalities": ["LG"] },
           { "text": "Salir a disfrutar bajo la lluvia", "personalities": ["LT"] }
       ]
@@ -121,5 +121,47 @@
           { "text": "No haré trampa, soy una persona justa", "personalities": ["LB", "LO"] },
           { "text": "Si soy tan listo(a) para hacer trampa sin que se den cuenta entonces merezco la victoria", "personalities": ["LN"] }
       ]
-  }
+  },
+  {
+    "question": "¿Qué valoras más en una amistad?",
+    "options": [
+        { "text": "Lealtad", "personalities": ["LB"] },
+        { "text": "Honestidad", "personalities": ["LT"] },
+        { "text": "Apoyo emocional", "personalities": ["LO", "LD"] },
+        { "text": "Una conexión intelectual profunda", "personalities": ["LG"] },
+        { "text": "El beneficio que pueda obtener de ella", "personalities": ["LN"] }
+    ]
+},
+{
+    "question": "¿Qué te suena más a éxito?",
+    "options": [
+        { "text": "Alcanzar metas profesionales y personales", "personalities": ["LB"] },
+        { "text": "Vivir en paz y armonía con uno mismo", "personalities": ["LD"] },
+        { "text": "Contribuir positivamente al mundo", "personalities": ["LO"] },
+        { "text": "Ser recordado después de la muerte", "personalities": ["LV"] }
+    ]
+},
+{
+    "question": "¿Crees que la tecnología debería tener límites en su desarrollo?",
+    "options": [
+        { "text": "Sí, algunas áreas son peligrosas para la humanidad", "personalities": ["NULL"] },
+        { "text": "No, el progreso no debe detenerse", "personalities": ["LGL", "LV"] }
+    ]
+},
+{
+    "question": "¿Alguna vez has desarmado completamente un aparato electrónico por curiosidad?",
+    "options": [
+        { "text": "Sí", "personalities": ["LG", "LT"] },
+        { "text": "No", "personalities": ["NULL"] }
+    ]
+},
+{
+    "question": "¿Crees que el \"yo\" que existe en tu mente es el mismo que los demás perciben?",
+    "options": [
+        { "text": "Sí, el \"yo\" que proyecto es quien realmente soy", "personalities": ["LB"] },
+        { "text": "No, la gente solo ve la versión que yo quiera exponer de mi verdadero ser", "personalities": ["LN"] },
+        { "text": "No, hay varias versiones de mí en cada persona", "personalities": ["LV"] },
+        { "text": "Mmm…", "personalities": ["NULL"] }
+    ]
+}
 ]
