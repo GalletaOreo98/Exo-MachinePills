@@ -1,0 +1,131 @@
+.card {
+  width: 100%;
+  background-color: #001936;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(255, 219, 219, 0.1);
+  overflow: hidden;
+  font-size: 14px;
+  color: #333;
+  /* max-width: 90%; */
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle, #ffa9ff 0%, #b8eeff 100%);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-img {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.name {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #442b6d;
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.description {
+  margin: 0 0 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact p {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.contact a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  color: #007BFF;
+  text-decoration: underline;
+}
+
+.badge {
+  background-color: #9294e6;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: .85rem;
+  padding: 0.3em 0.6em 0.2em;
+  margin: 5px 0;
+}
+
+.link-badge {
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  font-size: .85rem;
+  padding: 0.3em 0.8em 0.3em;
+  margin: 5px 0;
+  font-weight: 500;
+}
+
+.mini-icon {
+  max-width: 0.85rem;
+}
+
+
+/* Estilo del modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: visible;
+}
+
+/* Fondo difuso detrás del modal */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* Contenido del modal */
+.modal-content {
+  position: relative;
+  background-color: #ffffff00;
+  border-radius: 15px;
+  /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); */
+  z-index: 1001;
+  width: 28rem;
+  max-width: 90%;
+  overflow-y: auto;
+}
+
+.close {
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  background-color: #c774c7;
+  color: #fff;
+  border-style: none;
+}

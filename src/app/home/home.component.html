@@ -16,6 +16,10 @@
     <button class="btn btn-danger" (click)="takeAPill();">Take a pill</button>
   </div>
 
+  @if (isModalOpen) {
+  <app-my-info-card (closeEvent)="receiveCloseEvent($event)"></app-my-info-card>
+  }
+
   <div class="d-flex justify-content-center mt-4">
     <ul style="list-style: none;">
       <li routerLink="/layers/essence">
@@ -45,5 +49,13 @@
   <div class="d-flex justify-content-center mt-4">
     <h4 class="neon-text" routerLink="/cyberia">Cyberia Cafe & Club</h4>
   </div>
-  
+
+  <footer class="d-flex justify-content-center fixed-bottom p-4" (click)="openModal()">
+    <small>
+      &copy; {{currentime}}
+      <strong style="color: #007BFF; text-decoration: underline; cursor: pointer;">
+        Or3odev
+      </strong> All Rights Reserved.
+    </small>
+  </footer>
 </div>

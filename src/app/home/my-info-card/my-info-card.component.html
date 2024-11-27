@@ -1,0 +1,31 @@
+<div class="modal">
+    <div class="modal-overlay" (click)="sendCloseEvent()"></div>
+    <div class="modal-content">
+        <div class="card mx-auto">
+            <div class="card-header">
+                <img src="/assets/images/profile-pic.jpg" alt="Foto de perfil" class="profile-img" />
+                <h2 class="name">Or<span style="color: rgb(202, 0, 202);">3</span>o<span
+                        style="color: rgb(0, 138, 0);">dev</span></h2>
+                <p class="title badge">Systems Engineer</p>
+            </div>
+            <div class="card-body">
+                <p class="description">A non-aestethic cookie 🍪</p>
+                <div class="contact">
+                    <p class="mb-2">
+                        <a class="link-badge" href="https://github.com/GalletaOreo98" target="_blank">
+                            <img src="/assets/icons/github-black.svg" class="mini-icon" style="margin-bottom: 2px;" />
+                            Github
+                        </a>
+                    </p>
+                    <p>
+                        <a class="link-badge" href="mailto:or3odev&#64;exo-machinepills.com">
+                            <img src="/assets/icons/mail-black.svg" class="mini-icon" />
+                            or3odev&#64;exo-machinepills.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <button class="mt-4 mx-auto close" (click)="sendCloseEvent()">X</button>
+    </div>
+</div>
