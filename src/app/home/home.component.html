@@ -17,7 +17,7 @@
   </div>
 
   @if (isModalOpen) {
-  <app-my-info-card (closeEvent)="receiveCloseEvent($event)"></app-my-info-card>
+  <app-my-info-card (closeEvent)="receiveCloseModalEvent($event)"></app-my-info-card>
   }
 
   <div class="d-flex justify-content-center mt-4">
@@ -46,12 +46,12 @@
     </ul>
   </div>
 
-  <div class="d-flex justify-content-center mt-4">
+  <div class="d-flex justify-content-center">
     <h4 class="neon-text" routerLink="/cyberia">Cyberia Cafe & Club</h4>
   </div>
 
   <footer class="d-flex justify-content-center fixed-bottom p-4" (click)="openModal()">
-    <small>
+    <small style="cursor: pointer;">
       &copy; {{currentime}}
       <strong style="color: #007BFF; text-decoration: underline; cursor: pointer;">
         Or3odev

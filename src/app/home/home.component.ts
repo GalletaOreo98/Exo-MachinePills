@@ -10,8 +10,7 @@ import { MyInfoCardComponent } from "./my-info-card/my-info-card.component";
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
-  @ViewChild(MyInfoCardComponent) myInfoCard!: MyInfoCardComponent;
+  
   isModalOpen: boolean = false;
   currentime: string;
 
@@ -41,7 +40,7 @@ export class HomeComponent {
   }
 
   //Recibe el evento de cierre del modal
-  receiveCloseEvent($event: boolean) {
+  receiveCloseModalEvent($event: boolean) {
     this.isModalOpen = $event;
   }
 }
