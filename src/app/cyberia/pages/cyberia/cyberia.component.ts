@@ -1,10 +1,11 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cyberia',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cyberia.component.html',
   styleUrl: './cyberia.component.css'
 })
