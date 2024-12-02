@@ -101,7 +101,7 @@ export class LaintestComponent implements OnInit {
     this.questionService.getQuestions().subscribe((data: Question[]) => {
       this.questions = data;
       this.questionsLoaded = true;
-      console.log(this.personalityPoints);
+      //console.log(this.personalityPoints);
       console.log("Total preguntas:", this.questions.length);
     });
   }
@@ -134,7 +134,7 @@ export class LaintestComponent implements OnInit {
       }
     }
 
-    console.log(this.personalityPoints);
+    //console.log(this.personalityPoints);
 
     this.testResultImage = this.personalityImages[topPersonality];
 

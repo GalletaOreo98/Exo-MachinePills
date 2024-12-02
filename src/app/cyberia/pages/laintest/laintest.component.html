@@ -29,9 +29,11 @@
         <div class="result-container">
             <p class="result-header">¡Test Finalizado!</p>
             <p class="result-text">Tu personalidad es: <span class="personality">{{ testResult }}</span></p>
-            <a [href]="testResultImage" download="lain-test-result-image.png" class="download-button">
+            <a href="/" class="btn btn-secondary btn-sm">Inicio</a>
+            <a [href]="testResultImage" download="lain-test-result-image.png" class="download-button mx-2">
                 Descargar
             </a>
+            <a href="/cyberia/laintest" class="btn btn-secondary btn-sm">Repetir</a>
         </div>
     
          <!-- Imagen grande de la Lain Carta que obtuvo el usuario del test -->
