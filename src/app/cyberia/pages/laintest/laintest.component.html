@@ -70,5 +70,15 @@
                 </div>
             </div>
         </div>
+
+        @if(hasExtravagantPersonality) {
+            <div class="extravagant-personality">
+                <div>
+                    <p>¡Felicidades! Tienes una personalidad única y muy difícil de medir, por lo que has desbloqueado una carta oculta</p>
+                </div>
+                <a class="btn btn-secondary btn-sm" (click)="applyExtravagantPersonality()">Obtener</a>
+            </div>
+            <br>
+        }
     }
 }

@@ -158,7 +158,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     max-width: 600px;
 }
@@ -191,6 +191,16 @@
     /* border-start-start-radius: 10px; */
 }
 
+.extravagant-personality{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
 
 /* FOR MOBILE */
 @media (max-width: 768px) {
@@ -218,6 +228,10 @@
     }
 
     .stat-bars-container {
+        max-width: 85%;
+    }
+
+    .extravagant-personality{
         max-width: 85%;
     }
 }

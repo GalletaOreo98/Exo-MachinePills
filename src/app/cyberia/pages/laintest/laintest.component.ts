@@ -27,6 +27,9 @@ export class LaintestComponent implements OnInit {
   MAX_POINTS_PER_PERSONALITY = 11; // Número maximo de puntos que se pueden obtener por personalidad
   MAX_POINTS_LGL = 3; // Número total de puntos que se pueden obtener para 08-lain-glitch (LGL)
 
+  hasExtravagantPersonality = false;
+  extravagantPersonality = '';
+
   personalityPoints: { [key: string]: number } = {
     LB: 0,//LAIN_BRAVA 
     LO: 0,//LAIN_OSITO
@@ -135,6 +138,19 @@ export class LaintestComponent implements OnInit {
 
     this.testResultImage = this.personalityImages[topPersonality];
 
+    //Check if the top personality has the same points as another personality
+    for (let personality in this.personalityPoints) {
+      if (this.personalityPoints[personality] == maxPoints && personality != topPersonality) {
+        this.hasExtravagantPersonality = true;
+        this.extravagantPersonality = 'Lain Glitch';
+      }
+    }
+
+    if(this.personalityPoints['LGL'] >= 3){
+      this.hasExtravagantPersonality = true;
+      this.extravagantPersonality = 'Lain Glitch';
+    }
+
     switch (topPersonality) {
       case "LB":
         return "Lain Brava";
@@ -153,7 +169,13 @@ export class LaintestComponent implements OnInit {
       default:
         break;
     }
+
     return topPersonality;
+  }
+
+  applyExtravagantPersonality() {
+    this.testResult = this.extravagantPersonality;
+    this.testResultImage = this.personalityImages['LGL'];
   }
 
   calculateStatsBar() {
