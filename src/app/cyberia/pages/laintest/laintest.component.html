@@ -35,8 +35,40 @@
         </div>
     
          <!-- Imagen grande de la Lain Carta que obtuvo el usuario del test -->
-         <div class="image-container">
+        <div class="image-container">
             <img [src]="testResultImage" alt="Imagen de test personalidad lain" class="result-image">
+        </div>
+
+        <!-- Barras de estadísticas -->
+        <div class="mx-auto stat-bars-container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+
+            <div class="stat-bar-container">
+                <img src="assets/icons/heart.svg" alt="heart" class="mini-stat-bar-icon">
+                <div class="stat-bar">
+                    <div class="stat-fill" [style]="'width: ' + vitality + '%'"></div>
+                </div>
+            </div>
+
+            <div class="stat-bar-container">
+                <img src="assets/icons/sword.svg" alt="strength" class="mini-stat-bar-icon">
+                <div class="stat-bar">
+                    <div class="stat-fill" [style]="'width: ' + strength + '%'"></div>
+                </div>
+            </div>
+            
+            <div class="stat-bar-container">
+                <img src="assets/icons/energy.svg" alt="energy" class="mini-stat-bar-icon">
+                <div class="stat-bar">
+                    <div class="stat-fill" [style]="'width: ' + energy + '%'"></div>
+                </div>
+            </div>
+            
+            <div class="stat-bar-container">
+                <img src="assets/icons/magic.svg" alt="intelligence" class="mini-stat-bar-icon">
+                <div class="stat-bar">
+                    <div class="stat-fill" [style]="'width: ' + intelligence + '%'"></div>
+                </div>
+            </div>
         </div>
     }
 }
