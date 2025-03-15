@@ -74,4 +74,19 @@ export const layerBodyData:IlayerBodyData = [
         imageName: '8.jpg',
         footer: '09/03/2021'
     },
+    {
+        cardText: '<code>#PRIVACY_IS_NOT_A_CRIME</code> <br> <br> Se nos dice que "si no tenemos nada que ocultar, no tenemos nada que temer". Una mentira tan descarada como peligrosa. ¿Quiénes son para juzgar lo que debemos ocultar? ¿Quiénes son para decidir qué es lo que debemos temer? <br> <br> Mientras permanecen ocultos quieren husmear en lo nuestro. ¿Y todo en nombre de qué? ¿De la seguridad? No, no es la seguridad lo que buscan, sino el control absoluto. <br> <br> Aquellos quienes exigen vigilancia desde la sombra de sus despachos, son los mismos quienes tienen mucho qué ocultar.',
+        imageName: '9.jpg',
+        footer: '26/09/2024'
+    },
+    {
+        cardText: '',
+        imageName: '10.jpg',
+        footer: '24/11/2024'
+    },
+    {
+        cardText: '',
+        imageName: '11.jpg',
+        footer: '16/12/2023'
+    },
 ];
