@@ -24,5 +24,15 @@ export const layerBodyData:IlayerBodyData = [
         cardText: '<code>*Wired sound*</code>',
         imageName: '1.jpg',
         footer: '26/03/2023'
-    }
+    },
+    {
+        cardText: 'Durante mucho tiempo mi dolor he ocultado, <br> Y quizá fue un gran error el haberme engañado, <br> Pues ya no hay redención para quien en las sobras mucho tiempo ha estado. <br> <br> Es una gran mentira decir que todo sana con el tiempo, <br> Pues no toda herida sana sin un tratamiento. <br> Siento como lentamente mi corazón se va muriendo, <br> Como una vieja máquina a la cual ya no puedes dar mantenimiento. <br> <br> Con mis últimas palabras te pido disculpas, <br> Aunque probablemente jamás entenderás, <br> Pues mi excusa es un simple “ya no puedo más”.',
+        imageName: '2.jpg',
+        footer: '18/02/2022'
+    },
+    {
+        cardText: 'Como un viejo recuerdo que lentamente se te olvida, y que tratando de recordarlo, de repente, se te va la vida.',
+        imageName: '3.jpg',
+        footer: '21/09/2024'
+    },
 ];
