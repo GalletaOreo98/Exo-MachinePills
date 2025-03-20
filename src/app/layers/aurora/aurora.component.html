@@ -69,11 +69,12 @@
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
 
-    <app-img-card
-        [layerName]="layerMainData.layerName"
-        [imgName]="layerBodyData[7].imageName"
-        [footer]="layerBodyData[7].footer"
-    ></app-img-card>
+    <app-special-card
+    [layerName]="layerMainData.layerName"
+    [cardText]="'Lain Chikita App'"
+    [imgName]="layerBodyData[7].imageName"
+    [footer]="layerBodyData[7].footer"
+><button class="btn btn-sm btn-success" onclick="window.open('https://play.google.com/store/apps/details?id=com.oreodev.lain_chikita&pcampaignid=web_share', '_blank')">Download</button></app-special-card>
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
 
@@ -129,11 +130,18 @@
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
 
-    <app-img-card
+    <app-special-card
         [layerName]="layerMainData.layerName"
+        [cardText]="'Lain in early 20s'"
         [imgName]="layerBodyData[14].imageName"
         [footer]="layerBodyData[14].footer"
-    ></app-img-card>
+    >
+        <button 
+            class="btn btn-sm btn-success" 
+            onclick="window.open('https://chromewebstore.google.com/detail/gpaoobbkanaaeimicpjbghofdijmlmmk?utm_source=item-share-cb', '_blank')">
+            Install theme
+        </button>
+    </app-special-card>
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
 
@@ -145,6 +153,18 @@
     ></app-img-text-card>
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
+
+    <app-special-card
+        [layerName]="layerMainData.layerName"
+        [cardText]="layerBodyData[17].cardText"
+        [imgName]="layerBodyData[17].imageName"
+        [footer]="layerBodyData[17].footer"
+        (imageClick)="handleImageCatClick()"
+        [isBorderChromatic]="true"
+    ></app-special-card>
+
+    <br class="d-none d-sm-none d-md-none d-lg-block">
+
 
     <app-img-card
         [layerName]="layerMainData.layerName"

@@ -6,11 +6,13 @@ import { LayerMainCardComponent } from '../shared/components/layer-main-card.com
 import { ImgTextCardComponent } from '../shared/components/img-text-card.component';
 import { layerMainData, layerBodyData } from "../shared/layers-data/aurora";
 import { ImgCardComponent } from '../shared/components/img-card.component';
+import { SpecialCardComponent } from '../shared/components/special-card-component';
+
 
 @Component({
   selector: 'app-aurora',
   standalone: true,
-  imports: [ModalBasicComponent, SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, ImgCardComponent],
+  imports: [ModalBasicComponent, SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, ImgCardComponent, SpecialCardComponent],
   templateUrl: './aurora.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrl: './aurora.component.css'
@@ -18,6 +20,8 @@ import { ImgCardComponent } from '../shared/components/img-card.component';
 export class AuroraComponent {
   layerMainData = layerMainData;
   layerBodyData = layerBodyData;
+  private audio: HTMLAudioElement;
+
   constructor(private title:Title, private meta:Meta) {
     this.title.setTitle(this.layerMainData.layerName);
 
@@ -33,5 +37,15 @@ export class AuroraComponent {
     this.meta.updateTag({name: 'twitter:description', content: "Let's color all the ways."});
     this.meta.updateTag({name: 'twitter:image', content: 'https://exo-machinepills.com/assets/images/layers/aurora/main.jpg'});
 
+    this.audio = new Audio();
+  }
+
+  handleImageCatClick(){
+    this.audio.src = '/assets/audio/meow-cat.mp3';
+    this.audio.play();
+  }
+
+  ngOnDestroy(): void {
+    this.audio.pause();
   }
 }
