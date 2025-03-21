@@ -6,31 +6,26 @@
   </p>
 </section>
 <div class="d-flex justify-content-center">
-  @if (!this.canvasChecker) {
+  @if (!this.canvasChecker && hasEnoughScreenSize) {
     <p class="d-block mt-4">LOADING...</p>
   }
 </div>
 
-<div class="d-flex justify-content-center">
-  <canvas #gameCanvas></canvas>
-  @if (!this.isMobile) {
-    <div class="d-block">
-        <button class="btn btn-light mb-1" (click)="play('MOV_DERECHA')">Play</button>
-        <br>
-        <button class="btn btn-light mb-1" (click)="play('MOV_IZQUIERDA')">Stop</button>
-        <br>
-        <button class="btn btn-light mb-1" (click)="nextSong()">Next</button>
-    </div>
-  }
-</div>
-
-@if (this.isMobile) {
-    <div class="d-flex justify-content-center mt-4">
-      <button class="btn btn-light mx-2" (click)="play('MOV_DERECHA')">Play</button>
-      <button class="btn btn-light mx-2" (click)="play('MOV_IZQUIERDA')">Stop</button>
-      <button class="btn btn-light mx-2" (click)="nextSong()">Next</button>
-    </div>
+@if (hasEnoughScreenSize) {
+  <div class="d-flex justify-content-center">
+    <canvas #gameCanvas></canvas>
+  </div>  
+} @else{
+  <div class="d-flex justify-content-center">
+    <h1 class="d-block mt-4">Welcome to Cyberia!</h1>
+  </div>
 }
+
+<div class="d-flex justify-content-center mt-4">
+  <button class="btn btn-light mx-2" (click)="play('MOV_DERECHA')">Play</button>
+  <button class="btn btn-light mx-2" (click)="play('MOV_IZQUIERDA')">Stop</button>
+  <button class="btn btn-light mx-2" (click)="nextSong()">Next</button>
+</div>
 
 <div class="d-flex justify-content-center mt-4">
   <a routerLink="/cyberia/laintest" class="btn btn-success">Hacer Lain Test</a>

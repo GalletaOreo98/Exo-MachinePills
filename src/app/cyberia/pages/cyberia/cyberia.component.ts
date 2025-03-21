@@ -23,6 +23,7 @@ export default class CyberiaComponent implements OnInit{
 
   //CANVAS VARS
   isMobile: boolean;
+  hasEnoughScreenSize: boolean = window.matchMedia("(min-width: 406px)").matches;
 
   private background: HTMLImageElement;
   private lain_right_1: HTMLImageElement;
@@ -92,7 +93,7 @@ export default class CyberiaComponent implements OnInit{
     this.meta.updateTag({name: 'twitter:description', content: 'Welcome to Cyberia, we have cyberpunk ambiance. Enjoy your coffee!'});
     this.meta.updateTag({name: 'twitter:image', content: 'https://exo-machinepills.com/assets/images/cyberia/background.png'});
 
-    this.isMobile = window.matchMedia("(max-width: 768px)").matches;
+    this.isMobile = window.matchMedia("(max-width: 868px)").matches;
     this.background = new Image();
     this.lain_right_1 = new Image();
     this.lain_right_2 = new Image();
@@ -107,12 +108,14 @@ export default class CyberiaComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    if (!this.hasEnoughScreenSize) return;
     console.log("ngOnInit:");
     this.setOnloadImagesEvents();
     this.loadImagesSRC();
   }
 
   ngAfterViewInit(): void {
+    if (!this.hasEnoughScreenSize) return;
     this.adjustCanvasSize();
     this.ctx = this.canvas.nativeElement.getContext('2d');
     console.log("getContext('2d') finished");
@@ -294,6 +297,14 @@ export default class CyberiaComponent implements OnInit{
   }
 
   play(action: string): void {
+    if (!this.hasEnoughScreenSize) {
+      if (action === "MOV_DERECHA") {
+        this.audio.play();
+      }else {
+        this.audio.pause();
+      }
+      return;
+    }
     if (!this.canvasObjectsReady) return;
     if (this.character.isMoving) return;
     if (this.character.x > this.INITIAL_CHARACTER_X * this.reductionFactor && action == "MOV_DERECHA") return;
@@ -375,12 +386,15 @@ export default class CyberiaComponent implements OnInit{
   }
 
   nextSong(): void {
-    if (this.character.x <= this.INITIAL_CHARACTER_X * this.reductionFactor) return;
-    this.currentSong++;
-    if (this.currentSong > 3) {
-      this.currentSong = 1;
+    if (this.hasEnoughScreenSize) {
+      if (this.character.x <= this.INITIAL_CHARACTER_X * this.reductionFactor) return;
     }
-    this.audio.src = `/assets/audio/cyberia/lyr${this.currentSong}.mp3`
-    this.audio.play();
+      this.currentSong++;
+      if (this.currentSong > 3) {
+        this.currentSong = 1;
+      }
+      this.audio.src = `/assets/audio/cyberia/lyr${this.currentSong}.mp3`
+      this.audio.play();
+
   }
 }
