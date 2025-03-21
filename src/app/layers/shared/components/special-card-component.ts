@@ -1,16 +1,22 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 /** 
 Una Card Special que contiene una imagen y/o texto, bordes cromaticos, eventos de click y contenido adicional en el cuerpo de la card text
 **/
 @Component({
     selector: 'app-special-card',
     standalone: true,
-    imports: [NgClass],
+    imports: [NgClass, NgStyle],
     template: `
     <div class="card mx-auto">
       <div class="row g-0">
-        <div class="col-md-7" [ngClass]="{ 'border-chromatic': isBorderChromatic }">
+        <div class="col-md-7" 
+          [ngStyle]="{
+            '--color1': color1, 
+            '--color2': color2, 
+            '--color3': color3
+          }"
+          [ngClass]="{ 'border-chromatic': isBorderChromatic }">
             <img [src]="'/assets/images/layers/'+layerName.toLocaleLowerCase()+'/'+imgName"
                 class="img-fluid rounded-start" alt="..." (click)="onImageClick()">
         </div>
@@ -36,7 +42,7 @@ Una Card Special que contiene una imagen y/o texto, bordes cromaticos, eventos d
     .border-chromatic img {
       padding: 3px;
       border: 2px solid transparent;
-      background: linear-gradient(90deg, rgba(255, 0, 255, 0.5), rgba(0, 255, 255, 0.5), rgba(255, 255, 0, 0.5));
+      background: linear-gradient(90deg, var(--color1), var(--color2), var(--color3));
       background-size: 300% 300%;
       animation: borderGlow 5s ease-in-out infinite;
     }
@@ -55,27 +61,28 @@ Una Card Special que contiene una imagen y/o texto, bordes cromaticos, eventos d
   `
 })
 export class SpecialCardComponent {
-    @Input() imgName: string;
-    @Input() layerName: string;
-    @Input() cardText: string;
-    @Input() footer: string;
+  @Input() imgName: string;
+  @Input() layerName: string;
+  @Input() cardText: string;
+  @Input() footer: string;
 
-    @Input() isBorderChromatic: boolean = false;
+  @Input() isBorderChromatic: boolean = false;
+  // Los colores de los bordes cromaticos
+  @Input() color1: string = 'rgba(255, 0, 255, 0.5)';
+  @Input() color2: string = 'rgba(0, 255, 255, 0.5)';
+  @Input() color3: string = 'rgba(255, 255, 0, 0.5)';
 
-    // Evento de salida que emitira cuando se haga clic en la imagen
-    @Output() imageClick: EventEmitter<void> = new EventEmitter<void>();
+  // Evento de salida que emitira cuando se haga clic en la imagen
+  @Output() imageClick: EventEmitter<void> = new EventEmitter<void>();
 
-
-    constructor() {
-        this.imgName = 'imageName.extension';
-        this.layerName = 'Insert layer name here';
-        this.cardText = 'Insert text here';
-        this.footer = 'Insert footer here 00/00/0000'
-
-    }
-
-    // Función que se ejecutara cuando se haga clic en la imagen
-    onImageClick(): void {
-        this.imageClick.emit(); // Emite el evento
-    }
+  constructor() {
+    this.imgName = 'imageName.extension';
+    this.layerName = 'Insert layer name here';
+    this.cardText = 'Insert text here';
+    this.footer = 'Insert footer here 00/00/0000'
+  }
+  // Función que se ejecutara cuando se haga clic en la imagen
+  onImageClick(): void {
+      this.imageClick.emit(); // Emite el evento
+  }
 }
