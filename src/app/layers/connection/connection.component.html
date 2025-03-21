@@ -36,6 +36,20 @@
     [footer]="layerBodyData[3].footer"
 ></app-img-text-card>
 
+<br class="d-none d-sm-none d-md-none d-lg-block">
+
+<app-special-card
+[layerName]="layerMainData.layerName"
+[cardText]="layerBodyData[5].cardText"
+[imgName]="layerBodyData[5].imageName"
+[footer]="layerBodyData[5].footer"
+(imageClick)="handleLoveClick()"
+[isBorderChromatic]="true"
+[color1]="'rgba(0, 255, 255, 0.5)'"
+[color2]="'rgba(123, 6, 33, 0.6)'"
+[color3]="'rgba(255, 192, 203, 0.8)'"
+></app-special-card>
+
 <app-text-card
     [cardText]="layerBodyData[4].cardText"
     [footer]="layerBodyData[4].footer"   
