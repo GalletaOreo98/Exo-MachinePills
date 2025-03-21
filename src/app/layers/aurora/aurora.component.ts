@@ -7,6 +7,7 @@ import { ImgTextCardComponent } from '../shared/components/img-text-card.compone
 import { layerMainData, layerBodyData } from "../shared/layers-data/aurora";
 import { ImgCardComponent } from '../shared/components/img-card.component';
 import { SpecialCardComponent } from '../shared/components/special-card-component';
+import confetti from 'canvas-confetti';
 
 
 @Component({
@@ -48,6 +49,18 @@ export class AuroraComponent {
   handleImageXmasClick(){
     this.audio.src = '/assets/audio/short-8bits-xmas-song.mp3';
     this.audio.play();
+    this.printConfetti();
+  }
+
+  printConfetti() {
+    const duration = 3000; // milisegundos
+    confetti({
+      particleCount: 60,
+      spread: 160,
+      origin: { y: 0.6 },
+    });
+    // Limpiar y resetear confetti después de 3 segundos
+    setTimeout(() => confetti.reset(), duration);
   }
 
   ngOnDestroy(): void {
