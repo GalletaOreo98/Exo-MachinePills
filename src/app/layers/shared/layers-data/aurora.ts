@@ -99,5 +99,10 @@ export const layerBodyData:IlayerBodyData = [
         imageName: '17.jpg',
         footer: '10/05/2024'
     },
+    {
+        cardText: 'Les deseo una feliz navidad a todos, hice este edit con mucho amor. Ojalá podamos compartir muchos más momentos juntos, pero incluso si algún día dejara de compartir contenido, espero podamos mantener estos lindos recuerdos, y así de alguna forma, sin importar dónde estemos, todos estaremos conectados.❤️🎄🦌',
+        imageName: '18.jpg',
+        footer: '24/12/2024'
+    },
 ];
 

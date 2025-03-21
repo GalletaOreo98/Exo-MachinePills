@@ -86,12 +86,17 @@
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
 
-    <app-img-text-card
+    <app-special-card
         [layerName]="layerMainData.layerName"
         [cardText]="layerBodyData[9].cardText"
         [imgName]="layerBodyData[9].imageName"
         [footer]="layerBodyData[9].footer"
-    ></app-img-text-card>
+        (imageClick)="handleImageXmasClick()"
+        [isBorderChromatic]="true"
+        [color1]="'rgba(0, 255, 0, 0.7)'"
+        [color2]="'rgba(255, 0, 0, 0.6)'"
+        [color3]="'rgba(255, 255, 255, 0.9)'"
+    ></app-special-card>
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
 
@@ -112,6 +117,15 @@
     ></app-img-text-card>
 
     <br class="d-none d-sm-none d-md-none d-lg-block">
+
+    <app-img-text-card
+        [layerName]="layerMainData.layerName"
+        [cardText]="layerBodyData[18].cardText"
+        [imgName]="layerBodyData[18].imageName"
+        [footer]="layerBodyData[18].footer"
+    ></app-img-text-card>
+
+    <br class="d-none d-sm-none d-md-none d-lg-block"> 
 
     <app-img-card
         [layerName]="layerMainData.layerName"

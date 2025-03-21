@@ -45,6 +45,11 @@ export class AuroraComponent {
     this.audio.play();
   }
 
+  handleImageXmasClick(){
+    this.audio.src = '/assets/audio/short-8bits-xmas-song.mp3';
+    this.audio.play();
+  }
+
   ngOnDestroy(): void {
     this.audio.pause();
   }
