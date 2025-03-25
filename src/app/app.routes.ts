@@ -14,8 +14,8 @@ export const routes: Routes = [
     {path: 'layers/ether', loadComponent: () => import('./layers/ether/ether.component').then(c => c.EtherComponent)},
     {path: 'layers/crypt', loadComponent: () => import('./layers/crypt/crypt.component').then(c => c.CryptComponent)},
     
-    //Cyberia
-    {path: 'cyberia', loadChildren: () => import('./cyberia/pages/cyberia/cyberia.routes')},
+    //Cyberia (Lazy Loading Routing Configuration)
+    {path: 'cyberia', loadChildren: () => import('./cyberia/pages/cyberia/cyberia.routes').then(m => m.cyberiaRoutes)},
 
     //Error and redirect
     {path: 'error', loadComponent: () => import('./error-page/error-page.component')},

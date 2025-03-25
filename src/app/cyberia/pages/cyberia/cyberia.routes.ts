@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const cyberiaRoutes: Routes = [
   {
     path: '',
     loadComponent: () => import('./cyberia.component'),
@@ -10,4 +10,3 @@ const routes: Routes = [
     loadComponent: () => import('../laintest/laintest.component').then(c => c.LaintestComponent),
   }
 ];
-export default routes;
