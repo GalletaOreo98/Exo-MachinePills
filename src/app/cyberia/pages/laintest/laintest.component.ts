@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { LaintestService } from './laintest.service'; // Asegúrate de importar el servicio
+import { LaintestService } from './laintest.service';
+import { ViewportScroller } from '@angular/common';
 
 export interface Question {
   question: string;
@@ -84,12 +85,14 @@ export class LaintestComponent implements OnInit {
   energy = 60;    
   intelligence = 90;
 
-  constructor(private questionService: LaintestService, private renderer: Renderer2) {
+  constructor(private questionService: LaintestService, private renderer: Renderer2, private viewportScroller: ViewportScroller) {
     this.audio = new Audio();
     this.audio.src = 'assets/audio/lain-test/blip.mp3';
   }
 
   ngOnInit(): void {
+    this.viewportScroller.scrollToPosition([0, 0]);
+    console.log("Scrolled to top");
     this.loadQuestions();
   }
 
