@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Nintendo DS BIOS';
+    src: url('../../../../assets/fonts/dsbios.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ds-bios {
+    font-family: 'Nintendo DS BIOS', sans-serif;
+}
+
+.responsive-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0 10px;
+}
+
+.responsive-buttons button {
+    margin: 5px;
+}

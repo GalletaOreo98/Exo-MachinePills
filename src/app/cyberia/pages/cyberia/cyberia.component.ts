@@ -1,15 +1,22 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
+import { CyberiaMinigameComponent } from "./components/cyberia-minigame-component";
+import { productBodyData } from "./cyberia-minigame-data";
 
 @Component({
   selector: 'app-cyberia',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CyberiaMinigameComponent],
   templateUrl: './cyberia.component.html',
   styleUrl: './cyberia.component.css'
 })
 export default class CyberiaComponent implements OnInit{
+
+  @ViewChild('firstMinigame', { static: false, read: ElementRef }) firstMinigame!: ElementRef;
+
+
+  cyberiaProducts = productBodyData;
 
   //CANVAS
   @ViewChild('gameCanvas', { static: false })
@@ -397,4 +404,10 @@ export default class CyberiaComponent implements OnInit{
       this.audio.play();
 
   }
+
+  // Scrolls to the first product (minigame) in the page
+  scrollToCyberiaGames() {
+    this.firstMinigame.nativeElement.scrollIntoView({ behavior: "smooth", block: "start" });
+  }    
+
 }
