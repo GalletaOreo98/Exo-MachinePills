@@ -36,7 +36,12 @@ export class HomeComponent {
 
   //Modal de mi carta de información
   openModal() {
-    this.isModalOpen = true;
+    if (this.isModalOpen) {
+      this.isModalOpen = false;
+    }
+    else {
+      this.isModalOpen = true
+    }
   }
 
   //Recibe el evento de cierre del modal
