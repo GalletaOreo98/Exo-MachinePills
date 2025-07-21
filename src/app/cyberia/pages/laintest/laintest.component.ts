@@ -220,7 +220,10 @@ export class LaintestComponent implements OnInit {
     if (this.charIndex < this.fullText.length) {
       this.displayedText += this.fullText.charAt(this.charIndex);
       this.charIndex++;
-      this.playBlipSound();
+      // Reproduce el sonido solo cada 3 caracteres para reducir la frecuencia
+      if (this.charIndex % 6 === 0) {
+        this.playBlipSound();
+      }
       setTimeout(() => this.typeText(), this.typingSpeed);
     }
   }
@@ -250,6 +253,8 @@ export class LaintestComponent implements OnInit {
   }
 
   playBlipSound() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
     this.audio.play();
   }
 
