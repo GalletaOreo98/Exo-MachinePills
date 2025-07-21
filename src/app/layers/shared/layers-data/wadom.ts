@@ -89,4 +89,9 @@ export const layerBodyData:IlayerBodyData = [
         imageName: '11.jpg',
         footer: '16/12/2023'
     },
+    {
+        cardText: '',
+        imageName: '12-original.jpg',
+        footer: '14/09/2024'
+    }
 ];

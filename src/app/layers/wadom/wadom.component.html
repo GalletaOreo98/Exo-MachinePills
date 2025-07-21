@@ -126,3 +126,19 @@
 ></app-img-text-card>
 
 <br class="d-none d-sm-none d-md-block d-lg-block">
+
+<app-special-card
+[cardId]="16"
+[layerName]="layerMainData.layerName"
+[cardText]="layerBodyData[16].cardText"
+[imgName]="layerBodyData[16].imageName"
+[footer]="layerBodyData[16].footer"
+[hasGlitchEffect]="true"
+(imageClick)="handleSwapImageOnClickEvent($event)"
+[isBorderChromatic]="true"
+[color1]="'rgba(0, 255, 255, 0.5)'"
+[color2]="'rgba(10, 16, 80, 0.6)'"
+[color3]="'rgba(100, 192, 203, 0.8)'"
+></app-special-card>
+
+<br class="d-none d-sm-none d-md-block d-lg-block">
