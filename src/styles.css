@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --background-color: #161616;
+}
+
 body {
     font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI';
-    background: #161616;
+    background: var(--background-color);
     color: #FFFFFF;
 }
 
