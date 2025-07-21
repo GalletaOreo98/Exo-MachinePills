@@ -39,4 +39,9 @@ export const layerBodyData:IlayerBodyData = [
         imageName: '2.jpg',
         footer: '28/12/2022'
     },
+    {
+        cardText: '<code>Technology waits for no one; it will keep advancing even if not everyone understands it.</code> <br> <br> You can\'t stop progress out of fear or lack of understanding. Will you cling to fear and irrational rejection, or will you adapt and turn it to your advantage?',
+        imageName: '3.jpg',
+        footer: '03/31/2025'
+    }
 ];
