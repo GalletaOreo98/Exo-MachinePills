@@ -60,6 +60,8 @@
 
 <br class="d-none d-sm-none d-md-none d-lg-block">
 
+<!-- Deep 1 -->
+@defer (on viewport) {
 <app-img-card
     [layerName]="layerMainData.layerName"
     [imgName]="layerBodyData[14].imageName"
@@ -142,3 +144,19 @@
 ></app-special-card>
 
 <br class="d-none d-sm-none d-md-block d-lg-block">
+
+} @placeholder {
+    <div class="spinner-container" style="display: flex; justify-content: center; align-items: center; min-height: 100px;">
+        <app-spinner 
+            color="#0BCDD2" 
+            borderWidth="4px">
+        </app-spinner>
+    </div>
+} @loading {
+    <div class="spinner-container" style="display: flex; justify-content: center; align-items: center; min-height: 100px;">
+        <app-spinner 
+            color="#0BCDD2" 
+            borderWidth="4px">
+        </app-spinner>
+    </div>
+}

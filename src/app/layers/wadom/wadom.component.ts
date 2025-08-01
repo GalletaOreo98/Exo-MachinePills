@@ -5,13 +5,14 @@ import { ImgTextCardComponent } from '../shared/components/img-text-card.compone
 import { TextCardComponent } from '../shared/components/text-card.component';
 import { ImgCardComponent } from '../shared/components/img-card.component';
 import { SpecialCardComponent } from '../shared/components/special-card-component';
+import { SpinnerComponent } from '../shared/components/spinner.component';
 import { layerBodyData, layerMainData } from '../shared/layers-data/wadom';
 import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-wadom',
   standalone: true,
-  imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent, ImgCardComponent, SpecialCardComponent],
+  imports: [SeparatorComponent, LayerMainCardComponent, ImgTextCardComponent, TextCardComponent, ImgCardComponent, SpecialCardComponent, SpinnerComponent],
   templateUrl: './wadom.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrl: './wadom.component.css'
